@@ -1,0 +1,137 @@
+﻿ <Window x:Class="ctcontrol.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ctcontrol.ViewModel"
+        mc:Ignorable="d"
+        Title="MainWindow" 
+        Height="300" 
+        Width="200"
+        ResizeMode="NoResize"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent">
+     
+    <Window.DataContext>
+        <local:MainViewModel/>
+    </Window.DataContext>
+     
+    <Border
+        CornerRadius="0 20 0 20"
+        Background="Black"
+        >
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="109"/>
+                <RowDefinition Height="127"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="35"/>
+            </Grid.RowDefinitions>
+            <Image Grid.Row="0"
+                   Grid.RowSpan="4"
+                   Source="Images/Backgroung.png"/>
+            <Grid Grid.Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" 
+                       Text="{Binding Data}"
+                       Foreground="White"
+                       FontFamily="Segoe UI"
+                       FontSize="15"
+                       Margin="0 15 0 0"
+                       HorizontalAlignment="Center"/>
+                <StackPanel Grid.Row="1"
+                            HorizontalAlignment="Center"
+                            Orientation="Horizontal">
+                    <TextBlock
+                       Text="{Binding Time}"
+                       Foreground="White"
+                       Margin="0 0 5 0"
+                       FontSize="35"
+                       VerticalAlignment="Center"/>
+                    <TextBlock
+                       Text="{Binding Second}"
+                       Foreground="White"
+                       FontSize="20"
+                       VerticalAlignment="Bottom"/>
+                </StackPanel>
+                <TextBlock Grid.Row="2" 
+                       Text="{Binding Day}"
+                       Foreground="White"
+                       FontFamily="Segoe UI"
+                       FontSize="15"
+                       Margin="0 3 0 0"
+                       HorizontalAlignment="Center"/>
+            </Grid>
+            <StackPanel Grid.Row="1"
+                        HorizontalAlignment="Center"
+                        Orientation="Vertical">
+                <TextBlock 
+                       Text="Время работы"
+                       Foreground="White"
+                       FontFamily="Segoe UI"
+                       HorizontalAlignment="Center"
+                       FontSize="15"/>
+                <TextBlock 
+                       Text="{Binding WorkTime}"
+                       Foreground="White"
+                       FontFamily="Segoe UI"
+                       HorizontalAlignment="Center"
+                       Margin="0 5 0 5"
+                       FontSize="15"/>
+                <TextBlock 
+                       Text="Заряд батареи"
+                       Foreground="White"
+                       FontFamily="Segoe UI"
+                       HorizontalAlignment="Center"
+                       FontSize="15"/>
+                <TextBlock 
+                       Text="{Binding Batary}"
+                       Foreground="White"
+                       FontFamily="Segoe UI"
+                       HorizontalAlignment="Center"
+                       Margin="0 5 0 0"
+                       FontSize="15"/>
+                <TextBlock 
+                       Text="Контроль системы"
+                       Foreground="White"
+                       FontFamily="Segoe UI"
+                       HorizontalAlignment="Center"
+                       FontSize="15"/>
+            </StackPanel>
+            <Grid Grid.Row="2">
+                <!--Сон Выключение Перезагрузка Выход из системы-->
+            </Grid>
+            <Grid Grid.Row="3">
+                <Button HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        BorderBrush="Transparent"
+                        Background="Transparent"
+                        >
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border CornerRadius="25"
+                                        BorderBrush="{TemplateBinding BorderBrush}"
+                                        BorderThickness="{TemplateBinding BorderThickness}"
+                                        Height="{TemplateBinding Height}"
+                                        Width="{TemplateBinding Width}">
+
+                                <ContentControl Margin="{TemplateBinding Padding}"
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                Content="{TemplateBinding Content}" />
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    <Image Source="{StaticResource Button}"
+                           Height="25"
+                           Width="118"/>
+                </Button>
+            </Grid>
+        </Grid>
+    </Border>
+</Window>
