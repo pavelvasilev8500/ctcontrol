@@ -1,13 +1,26 @@
 ﻿using ctcontrol.Model;
 using System;
 using System.ComponentModel;
+using System.Runtime.InteropServices;
+using System.Windows;
+using System.Windows.Input;
 
 namespace ctcontrol.ViewModel
 {
     class MainViewModel : INotifyPropertyChanged
     {
         readonly MainModel mm = new MainModel();
+        readonly Reboot reboot = new Reboot();
         private readonly System.Windows.Forms.Timer _timer = new System.Windows.Forms.Timer();
+
+        public MainViewModel()
+        {
+            StartClock();
+            _block = new Command(GoBlock, CanExecute);
+            _shutdown = new Command(GoShutdown, CanExecute);
+            _reboot = new Command(GoReboot, CanExecute);
+            _exit = new Command(GoExit, CanExecute);
+        }
 
         #region Data
         private string _data;
@@ -16,6 +29,12 @@ namespace ctcontrol.ViewModel
         private string _day;
         private string _worktime;
         private string _batary;
+        private Command _block;
+        private Command _sleep;
+        private Command _shutdown;
+        private Command _reboot;
+        private Command _exit;
+
 
         public string Data
         {
@@ -92,6 +111,46 @@ namespace ctcontrol.ViewModel
             }
         }
 
+        public Command Block
+        {
+            get
+            {
+                return _block;
+            }
+        }
+
+        public Command Sleep
+        {
+            get 
+            {
+                return _sleep; 
+            }
+        }
+
+        public Command Shutdown
+        {
+            get
+            {
+                return _shutdown;
+            }
+        }
+
+        public Command Reboot
+        {
+            get
+            {
+                return _reboot;
+            }
+        }
+
+        public Command Exit
+        {
+            get
+            {
+                return _exit;
+            }
+        }
+
         #endregion
 
         #region Inteface
@@ -102,10 +161,7 @@ namespace ctcontrol.ViewModel
         }
         #endregion
 
-        public MainViewModel()
-        {
-            StartClock();
-        }
+        #region Methods
 
         private void StartClock()
         {
@@ -124,5 +180,37 @@ namespace ctcontrol.ViewModel
             Batary = mm.SetBatary();
         }
 
+        private void GoBlock(object parameter)
+        {
+            MessageBox.Show("It's Work");
+        }
+
+
+        private void GoSleep(object parameter)
+        {
+            
+        }
+
+        private void GoShutdown(object parameter)
+        {
+            reboot.halt(false, false);
+        }
+
+        private void GoReboot(object parameter)
+        {
+            reboot.halt(true, false);
+        }
+
+        private void GoExit(object parameter)
+        {
+            reboot.Lock();
+        }
+
+        private bool CanExecute(object parameter)
+        {
+            return true;
+        }
+
+        #endregion
     }
 }

@@ -1,20 +1,20 @@
 ﻿using System;
 using System.Windows.Forms;
 using System.ComponentModel;
+using System.Runtime.InteropServices;
 
 namespace ctcontrol.Model
 {
     public class MainModel
     {
 
-        #region Methods
+    #region Methods
 
-        public string SetDate()
+    public string SetDate()
         {
             DateTime now = DateTime.Now;
             return string.Format(now.ToString("dd. ") + "{0:Y}", now);
         }
-
         public string SetTime()
         {
             return DateTime.Now.ToString("HH:mm");
@@ -32,7 +32,11 @@ namespace ctcontrol.Model
         }
         public string SetWorkTime()
         {
-            return "00T 00h 00m 00s";
+            // Get the system uptime
+            int systemUptime = Environment.TickCount;
+            //Using TimeSpan for Time in current format
+            var ts = TimeSpan.FromMilliseconds(systemUptime);
+            return string.Format($"{ts.Days}T {ts.Hours}h {ts.Minutes}m {ts.Seconds}s");
         }
         public string SetBatary()
         {
