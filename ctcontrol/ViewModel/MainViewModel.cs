@@ -11,15 +11,23 @@ namespace ctcontrol.ViewModel
     {
         readonly MainModel mm = new MainModel();
         readonly Reboot reboot = new Reboot();
+        readonly Autorun autorun = new Autorun();
         private readonly System.Windows.Forms.Timer _timer = new System.Windows.Forms.Timer();
 
         public MainViewModel()
         {
+            //Autorun enable
+            //SetAutorunValue(true);
+            //Autorun disable
+            //SetAutorunValue(false);
+            autorun.SetAutorunValue(true);
             StartClock();
-            _block = new Command(GoBlock, CanExecute);
-            _shutdown = new Command(GoShutdown, CanExecute);
-            _reboot = new Command(GoReboot, CanExecute);
-            _exit = new Command(GoExit, CanExecute);
+            enableDisableCommand = new Command(() => {}, false);
+            _block = new Command(GoBlock, true);
+            _sleep = new Command(GoSleep);
+            _shutdown = new Command(GoShutdown);
+            _reboot = new Command(GoReboot);
+            _exit = new Command(GoExit);
         }
 
         #region Data
@@ -29,12 +37,13 @@ namespace ctcontrol.ViewModel
         private string _day;
         private string _worktime;
         private string _batary;
+        private Visibility visibility;
         private Command _block;
         private Command _sleep;
         private Command _shutdown;
         private Command _reboot;
         private Command _exit;
-
+        private Command enableDisableCommand;
 
         public string Data
         {
@@ -111,6 +120,19 @@ namespace ctcontrol.ViewModel
             }
         }
 
+        public Visibility VisibilityBlock
+        {
+            get
+            {
+                return visibility;
+            }
+            set
+            {
+                visibility = value;
+                OnPropertyChanged("VisibilityBlock");
+            }
+        }
+
         public Command Block
         {
             get
@@ -151,6 +173,14 @@ namespace ctcontrol.ViewModel
             }
         }
 
+        public Command EnableDisableCommand
+        {
+            get 
+            { 
+                return enableDisableCommand; 
+            }
+        }
+
         #endregion
 
         #region Inteface
@@ -182,33 +212,48 @@ namespace ctcontrol.ViewModel
 
         private void GoBlock(object parameter)
         {
-            MessageBox.Show("It's Work");
+            if (EnableDisableCommand.CanExecute == false)
+            {
+                EnableDisableCommand.CanExecute = true;
+                VisibilityBlock = Visibility.Hidden;
+            }
+            else if (EnableDisableCommand.CanExecute == true)
+            {
+                EnableDisableCommand.CanExecute = false;
+                VisibilityBlock = Visibility.Visible;
+            }
         }
-
 
         private void GoSleep(object parameter)
         {
-            
+            if (EnableDisableCommand.CanExecute == true)
+                return;
+            else
+                return;
         }
 
         private void GoShutdown(object parameter)
         {
-            reboot.halt(false, false);
+            if (EnableDisableCommand.CanExecute == true)
+                reboot.halt(false, false);
+            else
+                return;
         }
 
         private void GoReboot(object parameter)
         {
-            reboot.halt(true, false);
+            if (EnableDisableCommand.CanExecute == true)
+                reboot.halt(true, false);
+            else
+                return;
         }
 
         private void GoExit(object parameter)
         {
-            reboot.Lock();
-        }
-
-        private bool CanExecute(object parameter)
-        {
-            return true;
+            if (EnableDisableCommand.CanExecute == true)
+                reboot.Lock();
+            else
+                return;
         }
 
         #endregion

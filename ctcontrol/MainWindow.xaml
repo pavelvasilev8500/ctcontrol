@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ctcontrol.ViewModel"
+        xmlns:local1="clr-namespace:ctcontrol.ViewModel"
         mc:Ignorable="d"
         Title="MainWindow" 
         Height="300" 
@@ -136,28 +137,29 @@
                         >
                     <Image Source="{DynamicResource Lock}"/>
                 </Button>
+                <Path
+                    Data="M23.2,0.975 L0.0093757629,30.98125 175.01317,30.98125 199.98734,0.98125008" 
+                    Fill="White" 
+                    HorizontalAlignment="Left" 
+                    Height="30.006" 
+                    Margin="0.009,0.975,0,0" 
+                    Stretch="Fill" 
+                    StrokeThickness="2" 
+                    VerticalAlignment="Top" 
+                    Width="199.982"
+                    Opacity="0.7"
+                    Visibility="{Binding VisibilityBlock}"/>
+
             </Grid>
-            
-            <!--<Rectangle Grid.Row="2" 
-                HorizontalAlignment="Right"
-                Width="200">
-                <Rectangle.Stroke>
-                    <SolidColorBrush Color="White" Opacity="0.185"/>
-                </Rectangle.Stroke>
-                <Rectangle.Fill>
-                    <SolidColorBrush Color="White" Opacity="0.6"/>
-                </Rectangle.Fill>
-            </Rectangle>-->
-            
+
             <Grid Grid.Row="3">
                 <Button HorizontalAlignment="Center"
                         VerticalAlignment="Center"
                         Content="Блокировка"
                         Command="{Binding Block}" 
-                        Foreground="Red"
-                        Style="{DynamicResource SimpleButton}"
-                        >
-                </Button>
+                        Style="{DynamicResource BlockButton}"
+                        />
+
             </Grid>
             <Rectangle Fill="Black" HorizontalAlignment="Left" Height="8.9" Margin="61.1,3.8,0,0" Grid.Row="3" Stroke="Black" VerticalAlignment="Top" Width="78.8"/>
             <Rectangle Fill="Black" HorizontalAlignment="Left" Height="8.9" Margin="61.1,24.95,0,0" Grid.Row="3" Stroke="Black" VerticalAlignment="Top" Width="78.8"/>
