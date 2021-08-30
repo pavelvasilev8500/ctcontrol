@@ -24,6 +24,9 @@ namespace ctcontrol.Model
         //импортируем API функцию LockWorkStation
         [DllImport("user32.dll", EntryPoint = "LockWorkStation")]
         static extern bool LockWorkStation();
+        //импортируем API функцию SetSuspendState
+        [DllImport("Powrprof.dll", SetLastError = true)]
+        static extern uint SetSuspendState(bool hibernate, bool forceCritical, bool disableWakeEvent);
         //объявляем структуру TokPriv1Luid для работы с привилегиями
         [StructLayout(LayoutKind.Sequential, Pack = 1)]
         internal struct TokPriv1Luid
@@ -70,5 +73,11 @@ namespace ctcontrol.Model
             else
                 return 0;
         }
+
+        public uint Sleep(bool hibernate, bool forceCritical, bool disableWakeEvent)
+        {
+            return SetSuspendState(hibernate, forceCritical, disableWakeEvent);
+        }
     }
+
 }

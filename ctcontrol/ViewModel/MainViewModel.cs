@@ -3,6 +3,7 @@ using System;
 using System.ComponentModel;
 using System.Runtime.InteropServices;
 using System.Windows;
+using System.Windows.Forms;
 using System.Windows.Input;
 
 namespace ctcontrol.ViewModel
@@ -227,7 +228,9 @@ namespace ctcontrol.ViewModel
         private void GoSleep(object parameter)
         {
             if (EnableDisableCommand.CanExecute == true)
-                return;
+            {
+                reboot.Sleep(false, false, false);
+            }
             else
                 return;
         }

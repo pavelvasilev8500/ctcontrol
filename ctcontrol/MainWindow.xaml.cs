@@ -26,6 +26,8 @@ namespace ctcontrol
             InitializeComponent();
             this.Left = 1320;
             this.Top = 20;
+            //Chanege propery if need app icon.
+            this.ShowInTaskbar = false;
         }
     }
 }
