@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Reflection;
 
 
-namespace ctcontrol.Model
+namespace City.Model
 {
     class Autorun
     {

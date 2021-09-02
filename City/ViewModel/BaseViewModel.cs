@@ -4,7 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 
-namespace ctcontrol.ViewModel
+namespace City.ViewModel
 {
     class BaseViewModel : INotifyPropertyChanged
     {

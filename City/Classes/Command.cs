@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace ctcontrol
+namespace City
 {
     public class Command : ICommand
     {
