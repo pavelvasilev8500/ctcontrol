@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 
-namespace ctcontrol.Model
+namespace City.Model
 {
     class Reboot
     {

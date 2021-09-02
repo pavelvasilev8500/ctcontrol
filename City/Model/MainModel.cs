@@ -3,7 +3,7 @@ using System.Windows.Forms;
 using System.ComponentModel;
 using System.Runtime.InteropServices;
 
-namespace ctcontrol.Model
+namespace City.Model
 {
     public class MainModel
     {

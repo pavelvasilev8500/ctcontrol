@@ -1,8 +1,8 @@
-﻿using ctcontrol.Model;
+﻿using City.Model;
 using System;
 using System.Windows;
 
-namespace ctcontrol.ViewModel
+namespace City.ViewModel
 {
     class MainViewModel : BaseViewModel
     {

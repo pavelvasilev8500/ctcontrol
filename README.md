@@ -1,2 +1,3 @@
-# ctcontrol
-Widget like ctcontrol in Windows 7
+# City
+
+Widget like `CTcontrol` in Windows 7
