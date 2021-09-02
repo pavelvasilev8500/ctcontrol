@@ -19,12 +19,12 @@ namespace ctcontrol.ViewModel
             //SetAutorunValue(false);
             autorun.SetAutorunValue(true);
             StartClock();
-            enableDisableCommand = new Command(() => {}, false);
-            _block = new Command(GoBlock, true);
-            _sleep = new Command(GoSleep);
-            _shutdown = new Command(GoShutdown);
-            _reboot = new Command(GoReboot);
-            _exit = new Command(GoExit);
+            enableDisableCommand = new Command(param => { }, canExecute: false);
+            _block = new Command(GoBlock, canExecute: true);
+            _sleep = new Command(GoSleep, canExecute: true);
+            _shutdown = new Command(GoShutdown, canExecute: true);
+            _reboot = new Command(GoReboot, canExecute: true);
+            _exit = new Command(GoExit, canExecute: true);
         }
 
         #region Data

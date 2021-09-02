@@ -1,45 +1,28 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace ctcontrol
 {
     public class Command : ICommand
     {
+        private readonly Action<object> _action = null;
+        private bool _canExecute = false;
 
-        protected Action action = null;
-        protected Action<object> parameterizedAction = null;
-        private bool canExecute = false;
-
-        public Command(Action action, bool canExecute = true)
+        public Command(Action<object> action, bool canExecute)
         {
-            this.action = action;
-            this.canExecute = canExecute;
-        }
-
-        public Command(Action<object> parameterizedAction, bool canExecute = true)
-        {
-            this.parameterizedAction = parameterizedAction;
-            this.canExecute = canExecute;
+            _action = action;
+            _canExecute = canExecute;
         }
 
         public bool CanExecute
         {
-            get
-            {
-                return canExecute;
-            }
+            get => _canExecute;
             set
             {
-                if(canExecute != value)
+                if (_canExecute != value)
                 {
-                    canExecute = value;
-                    EventHandler canExecuteChanged = CanExecuteChanged;
-                    if (canExecuteChanged != null)
-                        canExecuteChanged(this, EventArgs.Empty);
+                    _canExecute = value;
+                    CanExecuteChanged?.Invoke(this, EventArgs.Empty);
                 }
             }
         }
@@ -48,28 +31,12 @@ namespace ctcontrol
 
         bool ICommand.CanExecute(object parameter)
         {
-            return canExecute;
+            return _canExecute;
         }
 
-        void ICommand.Execute(object parameter)
+        public void Execute(object parameter)
         {
-            this.DoExecute(parameter);
+            _action(parameter);
         }
-
-        protected void InvokeAction(object param)
-        {
-            Action theAction = action;
-            Action<object> theParameterizedAction = parameterizedAction;
-            if (theAction != null)
-                theAction();
-            else if (theParameterizedAction != null)
-                theParameterizedAction(param);
-        }
-
-        public virtual void DoExecute(object param)
-        {
-            InvokeAction(param);
-        }
-
     }
 }
