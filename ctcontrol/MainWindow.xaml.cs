@@ -1,4 +1,5 @@
-﻿using Microsoft.Win32;
+﻿using ctcontrol.Classes;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,10 +25,15 @@ namespace ctcontrol
         public MainWindow()
         {
             InitializeComponent();
-            this.Left = 1320;
-            this.Top = 20;
+            this.Left = Position.LeftPosition();
+            this.Top = Position.TopPosition();
             //Chanege propery if need app icon.
             this.ShowInTaskbar = false;
+        }
+
+        public void Move(object sender, EventArgs e)
+        {
+            this.DragMove();
         }
     }
 }

@@ -1,14 +1,10 @@
 ﻿using ctcontrol.Model;
 using System;
-using System.ComponentModel;
-using System.Runtime.InteropServices;
 using System.Windows;
-using System.Windows.Forms;
-using System.Windows.Input;
 
 namespace ctcontrol.ViewModel
 {
-    class MainViewModel : INotifyPropertyChanged
+    class MainViewModel : BaseViewModel
     {
         readonly MainModel mm = new MainModel();
         readonly Reboot reboot = new Reboot();
@@ -182,14 +178,6 @@ namespace ctcontrol.ViewModel
             }
         }
 
-        #endregion
-
-        #region Inteface
-        public event PropertyChangedEventHandler PropertyChanged;
-        protected virtual void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
         #endregion
 
         #region Methods

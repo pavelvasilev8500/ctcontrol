@@ -224,4 +224,31 @@
     </DrawingImage>
     <!--#endregion-->
     
+    <!--#region Settings-->
+    <DrawingImage x:Key="Settings">
+        <DrawingImage.Drawing>
+            <DrawingGroup ClipGeometry="M0,0 V300 H304 V0 H0 Z">
+                <DrawingGroup.Transform>
+                    <TranslateTransform X="0" Y="2.4563294118706835E-06" />
+                </DrawingGroup.Transform>
+                <GeometryDrawing Brush="#FF000000" Geometry="F1 M304,300z M0,0z M57.8511,81.7987L10.3511,34.7987C-22.6824,100.652,27.3852,169.223,103.351,147.799L256.851,298.299C292.075,304.755,309.166,287.996,302.351,250.799L149.851,97.7987C165.088,21.4568,100.936,-19.6336,34.8511,9.29874L81.8511,56.2987 75.8511,74.7987 57.8511,81.7987z" />
+            </DrawingGroup>
+        </DrawingImage.Drawing>
+    </DrawingImage>
+    <!--#endregion-->
+    
+    <!--#region Cross-->
+    <DrawingImage x:Key="Cross">
+        <DrawingImage.Drawing>
+            <DrawingGroup ClipGeometry="M0,0 V204 H199 V0 H0 Z">
+                <GeometryDrawing Geometry="F1 M199,204z M0,0z M6,6L193.5,198 M193.5,6L6,198">
+                    <GeometryDrawing.Pen>
+                        <Pen Brush="#FF000000" Thickness="15" StartLineCap="Flat" EndLineCap="Flat" LineJoin="Miter" />
+                    </GeometryDrawing.Pen>
+                </GeometryDrawing>
+            </DrawingGroup>
+        </DrawingImage.Drawing>
+    </DrawingImage>
+    <!--#endregion-->
+    
 </ResourceDictionary>
