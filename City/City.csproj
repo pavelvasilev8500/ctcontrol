@@ -82,6 +82,7 @@
     </ApplicationDefinition>
     <Compile Include="Classes\Autorun.cs" />
     <Compile Include="Classes\Command.cs" />
+    <Compile Include="Classes\Position.cs" />
     <Compile Include="Classes\Reboot.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />

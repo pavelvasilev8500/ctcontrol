@@ -1,4 +1,5 @@
-﻿using System;
+﻿using City.Classes;
+using System;
 using System.Windows;
 
 namespace City
@@ -8,26 +9,14 @@ namespace City
         public MainWindow()
         {
             InitializeComponent();
-            Left = GetLeft();
-            Top = GetTop();
+            Left = Position.GetLeft();
+            Top = Position.GetTop();
             ShowInTaskbar = false;
         }
 
         public void Move(object sender, EventArgs e)
         {
             DragMove();
-        }
-
-        private static double GetLeft()
-        {
-            const int OffsetFromScreenBorder = 200;
-            return SystemParameters.WorkArea.Right - OffsetFromScreenBorder;
-        }
-
-        private static double GetTop()
-        {
-            const int OffsetFromScreenBorder = 20;
-            return SystemParameters.WorkArea.Top + OffsetFromScreenBorder;
         }
     }
 }
