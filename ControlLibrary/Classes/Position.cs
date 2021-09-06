@@ -1,8 +1,8 @@
 ﻿using System.Windows;
 
-namespace City.Classes
+namespace ControlLibrary.Classes
 {
-    static class Position
+    public static class Position
     {
         public static double GetLeft()
         {
