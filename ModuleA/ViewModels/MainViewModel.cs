@@ -221,5 +221,6 @@ namespace ModuleA.ViewModels
             Environment.Exit(0);
         }
         #endregion
+
     }
 }

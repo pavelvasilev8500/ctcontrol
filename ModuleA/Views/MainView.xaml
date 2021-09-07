@@ -95,6 +95,7 @@
                     <Button
                         Grid.Row="0"
                         Command="{Binding CloseCommand}"
+                        ToolTip="Закрыть"
                         Style="{DynamicResource SimpleButton}"
                         Margin="1">
                         <Image Source="{DynamicResource Close}"/>
@@ -102,10 +103,12 @@
                     <Button 
                         Grid.Row="1"
                         Command="{Binding SettingCommand}"
+                        ToolTip="Настройки"
                         Style="{DynamicResource SimpleButton}">
                         <Image Source="{DynamicResource Setting}"/>
                     </Button>
                     <Image Grid.Row="2"
+                           ToolTip="Перемещение"
                            Source="{DynamicResource Move}"
                            Margin="2"/>
                 </Grid>
@@ -163,6 +166,7 @@
                         HorizontalAlignment="Left"
                         VerticalAlignment="Center"
                         Command="{Binding SleepCommand}"
+                        ToolTip="Сон"
                         Style="{DynamicResource SimpleButton}" 
                         Width="25" 
                         Height="25">
@@ -172,6 +176,7 @@
                         HorizontalAlignment="Left"
                         VerticalAlignment="Center"
                         Command="{Binding ShutdonCommand}"
+                        ToolTip="Выключение"
                         Style="{DynamicResource SimpleButton}" 
                         Width="25"
                         Height="25">
@@ -181,6 +186,7 @@
                         HorizontalAlignment="Left"
                         VerticalAlignment="Center"
                         Command="{Binding RebootCommand}"
+                        ToolTip="Перезагрузка"
                         Style="{DynamicResource SimpleButton}" 
                         Width="25" 
                         Height="25">
@@ -190,6 +196,7 @@
                         HorizontalAlignment="Left"
                         VerticalAlignment="Center"
                         Command="{Binding ExitCommand}"
+                        ToolTip="Выход из системы"
                         Style="{DynamicResource SimpleButton}" 
                         Width="25" 
                         Height="25">
