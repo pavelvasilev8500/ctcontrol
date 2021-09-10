@@ -1,8 +1,6 @@
-﻿using ModuleA.ViewModels;
-using ModuleA.Views;
+﻿using ModuleA.Views;
 using Prism.Ioc;
 using Prism.Modularity;
-using Prism.Mvvm;
 using Prism.Regions;
 
 namespace ModuleA
@@ -20,13 +18,22 @@ namespace ModuleA
         {
             IRegion region = _regionManager.Regions["ContentRegion"];
 
+            var languageView = containerProvider.Resolve<LanguageView>();
+            var backgroundView = containerProvider.Resolve<BackgroundView>();
+            var commonView = containerProvider.Resolve<CommonView>();
+            var settingsView = containerProvider.Resolve<SettingsView>();
             var mainView = containerProvider.Resolve<MainView>();
             region.Add(mainView);
+            region.Add(settingsView);
         }
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            ViewModelLocationProvider.Register<MainView, MainViewModel>();
+            containerRegistry.RegisterForNavigation<MainView>();
+            containerRegistry.RegisterForNavigation<SettingsView>();
+            containerRegistry.RegisterForNavigation<LanguageView>();
+            containerRegistry.RegisterForNavigation<BackgroundView>();
+            containerRegistry.RegisterForNavigation<CommonView>();
         }
     }
 }

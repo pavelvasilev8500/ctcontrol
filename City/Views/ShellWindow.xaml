@@ -4,56 +4,75 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:prism="http://prismlibrary.com/"
+        prism:ViewModelLocator.AutoWireViewModel="True"
         mc:Ignorable="d"
         Title="ShellWindow"
-        Height="300"
-        Width="200"
         ResizeMode="NoResize"
         WindowStyle="None"
         AllowsTransparency="True"
         Background="Transparent"
         >
 
-    <Grid>
+    <Border
+        CornerRadius="0 20 0 20"
+        Background="Black"
+        Height="300"
+        Width="200"
+        HorizontalAlignment="Left"
+        VerticalAlignment="Top"
+        Grid.Column="0">
 
-        <!--#region Grid-->
-        <Grid.RowDefinitions>
-            <RowDefinition Height="109"/>
-            <RowDefinition Height="125"/>
-            <RowDefinition Height="31"/>
-            <RowDefinition Height="35"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="170"/>
-            <ColumnDefinition Width="30"/>
-        </Grid.ColumnDefinitions>
-        <!--#endregion-->
-        <ContentControl
+        <Grid>
+
+            <!--#region Grid-->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="109"/>
+                <RowDefinition Height="125"/>
+                <RowDefinition Height="31"/>
+                <RowDefinition Height="35"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="170"/>
+                <ColumnDefinition Width="30"/>
+            </Grid.ColumnDefinitions>
+            <!--#endregion-->
+
+            <!--#region Background-->
+            <Image
+            Grid.Column="0"
+            Grid.Row="0"
+            Grid.RowSpan="4"
+            Grid.ColumnSpan="2"
+            Source="{DynamicResource Background}"/>
+            <!--#endregion-->
+
+            <ContentControl
                 Grid.Row="0"
                 Grid.Column="0"
                 Grid.ColumnSpan="2"
                 Grid.RowSpan="4"
                 prism:RegionManager.RegionName="ContentRegion"/>
 
-        <Grid Grid.Row="0"
+
+            <Grid Grid.Row="0"
                       Grid.Column="1">
-            <Grid
+                <Grid
                         Width="14"
                         Height="48"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Top"
                         Margin="0 20 0 0">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="16"/>
-                    <RowDefinition Height="16"/>
-                    <RowDefinition Height="16"/>
-                </Grid.RowDefinitions>
-                <Grid Grid.Row="2"
-                          Background="Transparent"
-                          Cursor="SizeAll"
-                          PreviewMouseLeftButtonDown="Move"/>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="16"/>
+                        <RowDefinition Height="16"/>
+                        <RowDefinition Height="16"/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="2"
+                      Background="Transparent"
+                      ToolTip="Перемещение виджета"
+                      PreviewMouseLeftButtonDown="Move"/>
+                </Grid>
             </Grid>
         </Grid>
-    </Grid>
-
+    </Border>
 </Window>

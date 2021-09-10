@@ -5,6 +5,8 @@ using ControlLibrary.Models;
 using System.Windows;
 using System.Windows.Forms;
 using System;
+using Prism.Regions;
+using ControlLibrary.Data;
 
 namespace ModuleA.ViewModels
 {
@@ -12,8 +14,8 @@ namespace ModuleA.ViewModels
     {
 
         #region for test!
-        private string _title = "Hello form ViewAViewModel";
-        public string Title
+        private bool _title;
+        public bool Title
         {
             get { return _title; }
             set
@@ -31,6 +33,7 @@ namespace ModuleA.ViewModels
         private string _worktime;
         private string _batary;
         private Visibility _blockvisible;
+        private readonly IRegionManager _regionManager;
 
         public string Date
         {
@@ -118,8 +121,8 @@ namespace ModuleA.ViewModels
         #region Constructors
         Reboot reboot = new Reboot();
         MainModel mainModel = new MainModel();
-        Autorun autorun = new Autorun();
         Timer timer = new Timer();
+        Settings settings = new Settings(); 
         #endregion
 
         #region Commands
@@ -129,17 +132,19 @@ namespace ModuleA.ViewModels
         public DelegateCommand ExitCommand { get; private set; }
         public DelegateCommand BlockCommand { get; private set; }
         public DelegateCommand CloseCommand { get; private set; }
-        public DelegateCommand SettingCommand { get; private set; }
+        public DelegateCommand<string> SettingCommand { get; set; }
         #endregion
 
+        #region Command Control
         private bool _canExecute = false;
         public bool CanExecute
         {
             get { return _canExecute; }
             set { SetProperty(ref _canExecute, value); }
         }
+        #endregion
 
-        public MainViewModel()
+        public MainViewModel(IRegionManager regionManager)
         {
             #region Commands Realization
             SleepCommand = new DelegateCommand(Sleep, CanExcuteMethod).ObservesCanExecute(() => CanExecute);
@@ -148,12 +153,17 @@ namespace ModuleA.ViewModels
             ExitCommand = new DelegateCommand(Exit, CanExcuteMethod).ObservesCanExecute(() => CanExecute);
             BlockCommand = new DelegateCommand(Block);
             CloseCommand = new DelegateCommand(Close);
-            SettingCommand = new DelegateCommand(Settings);
+            SettingCommand = new DelegateCommand<string>(Settings);
             #endregion
+            #region Methods
             StartClock();
-            autorun.SetAutorunValue(true);
+            #endregion
+            #region Regions
+            _regionManager = regionManager;
+            #endregion
         }
 
+        #region Methods
         private void StartClock()
         {
             timer.Enabled = true;
@@ -170,6 +180,12 @@ namespace ModuleA.ViewModels
             WorkTime = mainModel.SetWorkTime();
             Batary = mainModel.SetBatary();
         }
+
+        private void GetSettings()
+        {
+
+        }
+        #endregion
 
         #region Command Methods
         private bool CanExcuteMethod()
@@ -211,9 +227,9 @@ namespace ModuleA.ViewModels
             }
         }
 
-        private void Settings()
+        private void Settings(string uri)
         {
-            return;
+            _regionManager.RequestNavigate("ContentRegion", uri);
         }
 
         private void Close()

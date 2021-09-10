@@ -1,0 +1,106 @@
+﻿<UserControl x:Class="ModuleA.Views.SettingsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ModuleA.Views"
+             xmlns:prism="http://prismlibrary.com/"
+             prism:ViewModelLocator.AutoWireViewModel="True"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" 
+             d:DesignWidth="200">
+
+    <Border
+        CornerRadius="0 20 0 20"
+        Background="Transparent"
+        Grid.Column="0">
+
+        <!--#region MainGrid-->
+        <Grid>
+
+            <!--#region Grid-->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="37"/>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="173"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="35"/>
+            </Grid.RowDefinitions>
+            <!--#endregion-->
+
+            <!--#region WindgetControls-->
+            <Grid
+                Grid.Row="0">
+                <Button 
+                    Height="16"
+                    Width="16"
+                    Margin="10 0 0 0"
+                    Command="{Binding MainCommand}"
+                    CommandParameter="MainView"
+                    Style="{DynamicResource SimpleButton}"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center">
+                    <Image Source="{DynamicResource Arrow}"/>
+                </Button>
+            </Grid>
+            <!--#endregion-->
+
+            <!--#region SettingsControls-->
+            <StackPanel
+                Grid.Row="1"
+                Orientation="Horizontal"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                >
+                <Button 
+                    Content="Язык"
+                    Margin="10 0 10 0"
+                    Command="{Binding LanguageCommand}"
+                    CommandParameter="LanguageView"
+                    Style="{DynamicResource BlockButton}"/>
+                <Button 
+                    Content="Обои"
+                    Margin="10 0 10 0"
+                    Style="{DynamicResource BlockButton}"/>
+                <Button 
+                    Content="Общие"
+                    Margin="10 0 10 0"
+                    Command="{Binding CommonCommand}"
+                    CommandParameter="CommonView"
+                    Style="{DynamicResource BlockButton}"/>
+            </StackPanel>
+            <!--#endregion-->
+
+            <ContentControl 
+                Grid.Row="2"
+                prism:RegionManager.RegionName="SettingsContent"/>
+
+            <!--#region Title-->
+            <Grid 
+                Grid.Row="3">
+                <TextBlock 
+                    Text="{Binding Title}"
+                    FontSize="20"
+                    Foreground="White"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"/>
+            </Grid>
+            <!--#endregion-->
+
+            <!--#region ConterolButton-->
+            <Grid Grid.Row="4">
+                <Button HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Content="Сброс"
+                        Command="{Binding SetDefaultCommand}"
+                        Style="{DynamicResource BlockButton}"
+                        />
+            </Grid>
+            <!--#endregion-->
+
+        </Grid>
+        <!--#endregion-->
+
+    </Border>
+</UserControl>
+
