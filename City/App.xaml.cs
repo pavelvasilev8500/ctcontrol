@@ -6,7 +6,6 @@ using Prism.Modularity;
 using ModuleA;
 using Prism.Regions;
 using City.Core.Regions;
-using ControlLibrary.Classes;
 using System.Windows.Controls;
 
 namespace City

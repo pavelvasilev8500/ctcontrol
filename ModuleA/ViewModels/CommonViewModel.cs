@@ -1,11 +1,6 @@
 ﻿using ControlLibrary.Classes;
 using Prism.Mvvm;
-using System.IO;
-using Newtonsoft.Json;
 using ControlLibrary.Data;
-using System.Windows;
-using Prism.Commands;
-using System;
 using System.Collections.ObjectModel;
 
 namespace ModuleA.ViewModels

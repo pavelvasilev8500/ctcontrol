@@ -1,20 +1,8 @@
 ﻿using ModuleA.Views;
 using Prism.Commands;
-using Prism.Ioc;
-using Prism.Modularity;
 using Prism.Mvvm;
 using Prism.Regions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
-using System.IO;
-using ControlLibrary.Data;
 using ControlLibrary.Classes;
-using System.Collections.ObjectModel;
-using System.Windows;
 
 namespace ModuleA.ViewModels
 {

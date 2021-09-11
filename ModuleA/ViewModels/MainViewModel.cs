@@ -6,7 +6,6 @@ using System.Windows;
 using System.Windows.Forms;
 using System;
 using Prism.Regions;
-using ControlLibrary.Data;
 
 namespace ModuleA.ViewModels
 {
