@@ -1,7 +1,8 @@
-﻿using System;
+﻿using ModuleA.ViewModels;
+using System;
 using System.Windows.Forms;
 
-namespace ControlLibrary.Models
+namespace ModuleA.Models
 {
     public class MainModel
     {
@@ -35,6 +36,13 @@ namespace ControlLibrary.Models
         public string SetBatary()
         {
             return (SystemInformation.PowerStatus.BatteryLifePercent * 100).ToString() + "%";
+        }
+
+        public void Initialize()
+        {
+            LanguageViewModel languageViewModel = new LanguageViewModel();
+            BackgroundViewModel backgroundViewModel = new BackgroundViewModel();
+            CommonViewModel commonViewModel = new CommonViewModel();
         }
         #endregion
     }

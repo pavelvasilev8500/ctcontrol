@@ -61,6 +61,8 @@
                 <Button 
                     Content="Обои"
                     Margin="10 0 10 0"
+                    Command="{Binding BackgroundCommand}"
+                    CommandParameter="BackgroundView"
                     Style="{DynamicResource BlockButton}"/>
                 <Button 
                     Content="Общие"
@@ -71,10 +73,14 @@
             </StackPanel>
             <!--#endregion-->
 
-            <ContentControl 
+            <!--#region Content-->
+            <ContentControl
                 Grid.Row="2"
-                prism:RegionManager.RegionName="SettingsContent"/>
-
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                prism:RegionManager.RegionName="SettingsRegion"/>
+            <!--#endregion-->
+            
             <!--#region Title-->
             <Grid 
                 Grid.Row="3">

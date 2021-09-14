@@ -1,58 +1,41 @@
-﻿using ControlLibrary.Classes;
-using Prism.Mvvm;
-using ControlLibrary.Data;
-using System.Collections.ObjectModel;
+﻿using Prism.Mvvm;
+using System.Windows;
+using ControlLibrary.Classes;
 
 namespace ModuleA.ViewModels
 {
     class CommonViewModel : BindableBase
     {
-
         Autorun autorun = new Autorun();
-        Settings settingsClass = new Settings();
-
-        private ObservableCollection<Data> settings;
 
         private bool _switcher;
         public bool Switcher
         {
-            get { return _switcher; }
+            get 
+            {
+                return _switcher; 
+            }
             set 
             {
                 SetProperty(ref _switcher, value);
                 if (value == true)
                 {
-                    autorun.SetAutorunValue(true);
-                    foreach (var setting in settings)
-                    {
-                        setting.Switcher = Switcher;
-                    }
-                    settingsClass.SaveSettings(settings);
+                    autorun.SetAutorunValue(value);
+                    Properties.Settings.Default.Swither = Switcher;
+                    Properties.Settings.Default.Save();
                 }
                 else if (value == false)
                 {
-                    autorun.SetAutorunValue(false);
-                    foreach (var setting in settings)
-                    {
-                        setting.Switcher = Switcher;
-                    }
-                    settingsClass.SaveSettings(settings);
+                    autorun.SetAutorunValue(value);
+                    Properties.Settings.Default.Swither = Switcher;
+                    Properties.Settings.Default.Save();
                 }
             }
         }
 
         public CommonViewModel()
         {
-            Switch();
-        }
-
-        private void Switch()
-        {
-            settings = settingsClass.LoadSettings();
-            foreach(var setting in settings)
-            {
-                Switcher = setting.Switcher;
-            }
+            this.Switcher = Properties.Settings.Default.Swither;
         }
     }
 }

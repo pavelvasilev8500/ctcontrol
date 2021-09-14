@@ -26,8 +26,8 @@
 
             <!--#region Grid-->
             <Grid.RowDefinitions>
-                <RowDefinition Height="109"/>
-                <RowDefinition Height="125"/>
+                <RowDefinition Height="62"/>
+                <RowDefinition Height="172"/>
                 <RowDefinition Height="31"/>
                 <RowDefinition Height="35"/>
             </Grid.RowDefinitions>
@@ -73,6 +73,13 @@
                       PreviewMouseLeftButtonDown="Move"/>
                 </Grid>
             </Grid>
+
+            <!--<ContentControl
+                Grid.Row="1"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                prism:RegionManager.RegionName="SettingRegion"/>-->
+
         </Grid>
     </Border>
 </Window>

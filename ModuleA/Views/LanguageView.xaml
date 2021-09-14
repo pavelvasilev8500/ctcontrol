@@ -7,18 +7,12 @@
              xmlns:prism="http://prismlibrary.com/"
              prism:ViewModelLocator.AutoWireViewModel="True"
              mc:Ignorable="d" 
-             d:DesignHeight="173" d:DesignWidth="200">
-    <StackPanel
-        HorizontalAlignment="Left"
-        VerticalAlignment="Center"
-        Margin="30 0 0 0">
-        <RadioButton GroupName="Languages" 
-                     Content="Русский" 
-                     IsChecked="True" 
-                     Foreground="White"
-                     Margin="0 0 0 10"/>
-        <RadioButton GroupName="Languages" 
-                     Foreground="White"
-                     Content="Английский"/>
-    </StackPanel>
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <TextBlock Text="{Binding Text}"
+                    FontSize="25"
+                    Foreground="Red"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"/>
+    </Grid>
 </UserControl>

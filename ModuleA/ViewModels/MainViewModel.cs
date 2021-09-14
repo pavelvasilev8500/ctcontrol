@@ -1,11 +1,11 @@
 ﻿using Prism.Commands;
 using Prism.Mvvm;
 using ControlLibrary.Classes;
-using ControlLibrary.Models;
 using System.Windows;
 using System.Windows.Forms;
 using System;
 using Prism.Regions;
+using ModuleA.Models;
 
 namespace ModuleA.ViewModels
 {
@@ -121,7 +121,6 @@ namespace ModuleA.ViewModels
         Reboot reboot = new Reboot();
         MainModel mainModel = new MainModel();
         Timer timer = new Timer();
-        Settings settings = new Settings(); 
         #endregion
 
         #region Commands
@@ -156,6 +155,7 @@ namespace ModuleA.ViewModels
             #endregion
             #region Methods
             StartClock();
+            mainModel.Initialize();
             #endregion
             #region Regions
             _regionManager = regionManager;
@@ -175,14 +175,9 @@ namespace ModuleA.ViewModels
             Date = mainModel.SetDate();
             Time = mainModel.SetTime();
             Second = mainModel.SetSecond();
-            Day = mainModel.SetDay();
             WorkTime = mainModel.SetWorkTime();
+            Day = mainModel.SetDay();
             Batary = mainModel.SetBatary();
-        }
-
-        private void GetSettings()
-        {
-
         }
         #endregion
 
