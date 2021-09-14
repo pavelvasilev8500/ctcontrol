@@ -166,6 +166,7 @@ namespace ModuleA.ViewModels
         private void StartClock()
         {
             timer.Enabled = true;
+            timer.Interval = 1000;
             timer.Tick += Timer_Tick;
             timer.Start();
         }

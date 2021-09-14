@@ -92,9 +92,6 @@
     <Compile Include="Views\BackgroundView.xaml.cs">
       <DependentUpon>BackgroundView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\BaseView.xaml.cs">
-      <DependentUpon>BaseView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\CommonView.xaml.cs">
       <DependentUpon>CommonView.xaml</DependentUpon>
     </Compile>
@@ -120,10 +117,6 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="Views\BackgroundView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\BaseView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

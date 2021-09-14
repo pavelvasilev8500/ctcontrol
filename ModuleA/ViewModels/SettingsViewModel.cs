@@ -43,12 +43,6 @@ namespace ModuleA.ViewModels
             LoadDefaultSettingsView();
         }
 
-        private void LoadDefaultSettingsView()
-        {
-            _regionManager.RegisterViewWithRegion<LanguageView>("SettingsRegion");
-            Title = "Язык";
-        }
-
         #region Command Methods
         private void Main(string uri)
         {
@@ -78,6 +72,11 @@ namespace ModuleA.ViewModels
             settingsModel.ResetSettings();
         }
 
+        private void LoadDefaultSettingsView()
+        {
+            _regionManager.RegisterViewWithRegion<LanguageView>("SettingsRegion");
+            Title = "Язык";
+        }
         #endregion
     }
 }
