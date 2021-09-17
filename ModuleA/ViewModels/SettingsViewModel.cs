@@ -1,11 +1,15 @@
 ﻿using ModuleA.Models;
+using ModuleA.Properties;
 using ModuleA.Views;
 using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Regions;
+using System;
+using System.Windows;
 
 namespace ModuleA.ViewModels
 {
+    [RegionMemberLifetime(KeepAlive = false)]
     class SettingsViewModel : BindableBase
     {
         #region Title
@@ -30,6 +34,51 @@ namespace ModuleA.ViewModels
         public DelegateCommand SetDefaultCommand { get; private set; }
         #endregion
 
+        #region Data
+        private Visibility _langVisible = Visibility.Hidden;
+        private Visibility _wallVisible = Visibility.Hidden;
+        private Visibility _commVisible = Visibility.Hidden;
+
+        public Visibility LangVisible
+        {
+            get
+            {
+                return _langVisible;
+            }
+            set
+            {
+                _langVisible = value;
+                RaisePropertyChanged("LangVisible");
+            }
+        }
+
+        public Visibility WallVisible
+        {
+            get
+            {
+                return _wallVisible;
+            }
+            set
+            {
+                _wallVisible = value;
+                RaisePropertyChanged("WallVisible");
+            }
+        }
+
+        public Visibility CommVisible
+        {
+            get
+            {
+                return _commVisible;
+            }
+            set
+            {
+                _commVisible = value;
+                RaisePropertyChanged("CommVisible");
+            }
+        }
+        #endregion
+
         public SettingsViewModel(IRegionManager regionManager)
         {
             #region Commands Realization
@@ -42,6 +91,14 @@ namespace ModuleA.ViewModels
             _regionManager = regionManager;
             LoadDefaultSettingsView();
         }
+        #region Methods
+        private void DefaultVisible()
+        {
+            LangVisible = Visibility.Hidden;
+            WallVisible = Visibility.Hidden;
+            CommVisible = Visibility.Hidden;
+        }
+        #endregion
 
         #region Command Methods
         private void Main(string uri)
@@ -52,19 +109,25 @@ namespace ModuleA.ViewModels
         private void Language(string uri)
         {
             _regionManager.RequestNavigate("SettingsRegion", uri);
-            Title = "Язык";
+            DefaultVisible();
+            LangVisible = Visibility.Visible;
+            Title = (string)Application.Current.Resources["Language"];
         }
 
         private void Background(string uri)
         {
             _regionManager.RequestNavigate("SettingsRegion", uri);
-            Title = "Обои";
+            DefaultVisible();
+            WallVisible = Visibility.Visible;
+            Title = (string)Application.Current.Resources["Background"];
         }
 
         private void Common(string uri)
         {
             _regionManager.RequestNavigate("SettingsRegion", uri);
-            Title = "Общие";
+            DefaultVisible();
+            CommVisible = Visibility.Visible;
+            Title = (string)Application.Current.Resources["Common"];
         }
 
         private void SetDefaultSettings()
@@ -75,7 +138,10 @@ namespace ModuleA.ViewModels
         private void LoadDefaultSettingsView()
         {
             _regionManager.RegisterViewWithRegion<LanguageView>("SettingsRegion");
-            Title = "Язык";
+            DefaultVisible();
+            LangVisible = Visibility.Visible;
+            //Title = Properties.Resources.Language;
+            Title = (string)Application.Current.Resources["Language"];
         }
         #endregion
     }

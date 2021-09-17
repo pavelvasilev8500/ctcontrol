@@ -1,9 +1,11 @@
 ﻿using Prism.Mvvm;
 using System.Windows;
 using ControlLibrary.Classes;
+using Prism.Regions;
 
 namespace ModuleA.ViewModels
 {
+    [RegionMemberLifetime(KeepAlive = false)]
     class CommonViewModel : BindableBase
     {
         Autorun autorun = new Autorun();

@@ -1,0 +1,22 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:v="clr-namespace:System;assembly=mscorlib">
+    <v:String x:Key="Autorun">Автостарт</v:String>
+    <v:String x:Key="Background">Обои</v:String>
+    <v:String x:Key="BattaryСharge">Заряд батареи</v:String>
+    <v:String x:Key="BlockButton">Блокировка</v:String>
+    <v:String x:Key="Close">Закрыть</v:String>
+    <v:String x:Key="Common">Общие</v:String>
+    <v:String x:Key="DefaultButton">Сброс</v:String>
+    <v:String x:Key="English">Английский</v:String>
+    <v:String x:Key="Exit">Выход из системы</v:String>
+    <v:String x:Key="Language">Язык</v:String>
+    <v:String x:Key="Move">Перемещение виджета</v:String>
+    <v:String x:Key="Reboot">Перезагрузка</v:String>
+    <v:String x:Key="Russian">Русский</v:String>
+    <v:String x:Key="Settings">Настройки</v:String>
+    <v:String x:Key="ShutDown">Выключение</v:String>
+    <v:String x:Key="Sleep">Сон</v:String>
+    <v:String x:Key="SystemControl">Контроль системы</v:String>
+    <v:String x:Key="WorkTime">Время работы</v:String>
+</ResourceDictionary>

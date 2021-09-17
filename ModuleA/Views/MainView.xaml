@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ModuleA.Views"
+             xmlns:resx="clr-namespace:ModuleA.Properties"
              xmlns:prism="http://prismlibrary.com/"
              prism:ViewModelLocator.AutoWireViewModel="True"
              mc:Ignorable="d" >
@@ -87,22 +88,22 @@
                     <Button
                         Grid.Row="0"
                         Command="{Binding CloseCommand}"
-                        ToolTip="Закрыть"
+                        ToolTip="{DynamicResource Close}"
                         Style="{DynamicResource SimpleButton}"
                         Margin="1">
-                        <Image Source="{DynamicResource Close}"/>
+                        <Image Source="{DynamicResource CloseImage}"/>
                     </Button>
                     <Button 
                         Grid.Row="1"
                         Command="{Binding SettingCommand}"
                         CommandParameter="SettingsView"
-                        ToolTip="Настройки"
+                        ToolTip="{DynamicResource Settings}"
                         Style="{DynamicResource SimpleButton}">
-                        <Image Source="{DynamicResource Setting}"/>
+                        <Image Source="{DynamicResource SettingImage}"/>
                     </Button>
                     <Image Grid.Row="2"
-                           ToolTip="Перемещение"
-                           Source="{DynamicResource Move}"
+                           ToolTip="{DynamicResource Move}"
+                           Source="{DynamicResource MoveImage}"
                            Margin="2"/>
                 </Grid>
             </Grid>
@@ -117,7 +118,7 @@
                             Margin="36.383,0" 
                             Width="127.234">
                 <TextBlock 
-                       Text="Время работы"
+                       Text="{DynamicResource WorkTime}"
                        Foreground="White"
                        FontFamily="Segoe UI"
                        HorizontalAlignment="Center"
@@ -130,7 +131,7 @@
                        Margin="0 5 0 5"
                        FontSize="15"/>
                 <TextBlock 
-                       Text="Заряд батареи"
+                       Text="{DynamicResource BattaryСharge}"
                        Foreground="White"
                        FontFamily="Segoe UI"
                        HorizontalAlignment="Center"
@@ -143,7 +144,7 @@
                        Margin="0 5 0 0"
                        FontSize="15"/>
                 <TextBlock 
-                       Text="Контроль системы"
+                       Text="{DynamicResource SystemControl}"
                        Foreground="White"
                        FontFamily="Segoe UI"
                        HorizontalAlignment="Center"
@@ -159,41 +160,41 @@
                         HorizontalAlignment="Left"
                         VerticalAlignment="Center"
                         Command="{Binding SleepCommand}"
-                        ToolTip="Сон"
+                        ToolTip="{DynamicResource Sleep}"
                         Style="{DynamicResource SimpleButton}" 
                         Width="25" 
                         Height="25">
-                    <Image Source="{DynamicResource Sleep}"/>
+                    <Image Source="{DynamicResource SleepImage}"/>
                 </Button>
                 <Button Margin="70 0 0 0"
                         HorizontalAlignment="Left"
                         VerticalAlignment="Center"
                         Command="{Binding ShutdonCommand}"
-                        ToolTip="Выключение"
+                        ToolTip="{DynamicResource ShutDown}"
                         Style="{DynamicResource SimpleButton}" 
                         Width="25"
                         Height="25">
-                    <Image Source="{DynamicResource Shotdown}"/>
+                    <Image Source="{DynamicResource ShotdownImage}"/>
                 </Button>
                 <Button Margin="115 0 0 0"
                         HorizontalAlignment="Left"
                         VerticalAlignment="Center"
                         Command="{Binding RebootCommand}"
-                        ToolTip="Перезагрузка"
+                        ToolTip="{DynamicResource Reboot}"
                         Style="{DynamicResource SimpleButton}" 
                         Width="25" 
                         Height="25">
-                    <Image Source="{DynamicResource Reboot}"/>
+                    <Image Source="{DynamicResource RebootImage}"/>
                 </Button>
                 <Button Margin="150 0 0 0"
                         HorizontalAlignment="Left"
                         VerticalAlignment="Center"
                         Command="{Binding ExitCommand}"
-                        ToolTip="Выход из системы"
+                        ToolTip="{DynamicResource Exit}"
                         Style="{DynamicResource SimpleButton}" 
                         Width="25" 
                         Height="25">
-                    <Image Source="{DynamicResource Lock}"/>
+                    <Image Source="{DynamicResource LockImage}"/>
                 </Button>
                 <Path
                     Data="M23.2,0.975 L0.0093757629,30.98125 175.01317,30.98125 199.98734,0.98125008" 
@@ -217,9 +218,9 @@
                       Grid.ColumnSpan="2">
                 <Button HorizontalAlignment="Center"
                         VerticalAlignment="Center"
-                        Content="Блокировка"
+                        Content="{DynamicResource BlockButton}"
                         Command="{Binding BlockCommand}"
-                        Style="{DynamicResource BlockButton}"
+                        Style="{DynamicResource BlockButtonStyle}"
                         />
             </Grid>
             <!--#endregion-->
@@ -230,3 +231,4 @@
     </Border>
 
 </UserControl>
+<!--ToolTip="{x:Static resx:Resources.Settings}"-->

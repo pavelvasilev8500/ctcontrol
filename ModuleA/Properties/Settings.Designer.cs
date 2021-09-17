@@ -37,13 +37,37 @@ namespace ModuleA.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("250")]
         public int Id {
             get {
                 return ((int)(this["Id"]));
             }
             set {
                 this["Id"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("ru-RU")]
+        public global::System.Globalization.CultureInfo Culture {
+            get {
+                return ((global::System.Globalization.CultureInfo)(this["Culture"]));
+            }
+            set {
+                this["Culture"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int Open {
+            get {
+                return ((int)(this["Open"]));
+            }
+            set {
+                this["Open"] = value;
             }
         }
     }

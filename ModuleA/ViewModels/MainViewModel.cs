@@ -45,6 +45,7 @@ namespace ModuleA.ViewModels
                 SetProperty(ref _date, value);
             }
         }
+
         public string Time
         {
             get
@@ -56,6 +57,7 @@ namespace ModuleA.ViewModels
                 SetProperty(ref _time, value);
             }
         }
+
         public string Second
         {
             get
@@ -67,6 +69,7 @@ namespace ModuleA.ViewModels
                 SetProperty(ref _second, value);
             }
         }
+
         public string Day
         {
             get
@@ -166,8 +169,8 @@ namespace ModuleA.ViewModels
         private void StartClock()
         {
             timer.Enabled = true;
-            timer.Interval = 1000;
             timer.Tick += Timer_Tick;
+            timer.Interval = 1000;
             timer.Start();
         }
 

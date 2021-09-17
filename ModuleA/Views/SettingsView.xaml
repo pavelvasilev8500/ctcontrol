@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ModuleA.Views"
+             xmlns:resx="clr-namespace:ModuleA.Properties"
              xmlns:prism="http://prismlibrary.com/"
              prism:ViewModelLocator.AutoWireViewModel="True"
              mc:Ignorable="d" 
@@ -40,7 +41,7 @@
                     Style="{DynamicResource SimpleButton}"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Center">
-                    <Image Source="{DynamicResource Arrow}"/>
+                    <Image Source="{DynamicResource ArrowImage}"/>
                 </Button>
             </Grid>
             <!--#endregion-->
@@ -52,24 +53,42 @@
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
                 >
-                <Button 
-                    Content="Язык"
+                <StackPanel 
                     Margin="10 0 10 0"
-                    Command="{Binding LanguageCommand}"
-                    CommandParameter="LanguageView"
-                    Style="{DynamicResource BlockButton}"/>
-                <Button 
-                    Content="Обои"
+                    Orientation="Vertical">
+                    <Button Content="{DynamicResource Language}"
+                            Command="{Binding LanguageCommand}"
+                            CommandParameter="LanguageView"
+                            Style="{DynamicResource BlockButtonStyle}"/>
+                    <Rectangle Fill="White"
+                               Height="2"
+                               Width="31"
+                               Visibility="{Binding LangVisible}"/>
+                </StackPanel>
+                <StackPanel
                     Margin="10 0 10 0"
-                    Command="{Binding BackgroundCommand}"
-                    CommandParameter="BackgroundView"
-                    Style="{DynamicResource BlockButton}"/>
-                <Button 
-                    Content="Общие"
+                    Orientation="Vertical">
+                    <Button Content="{DynamicResource Background}"
+                            Command="{Binding BackgroundCommand}"
+                            CommandParameter="BackgroundView"
+                            Style="{DynamicResource BlockButtonStyle}"/>
+                    <Rectangle Fill="White"
+                               Height="2"
+                               Width="32"
+                               Visibility="{Binding WallVisible}"/>
+                </StackPanel>
+                <StackPanel
                     Margin="10 0 10 0"
-                    Command="{Binding CommonCommand}"
-                    CommandParameter="CommonView"
-                    Style="{DynamicResource BlockButton}"/>
+                    Orientation="Vertical">
+                    <Button Content="{DynamicResource Common}"
+                            Command="{Binding CommonCommand}"
+                            CommandParameter="CommonView"
+                            Style="{DynamicResource BlockButtonStyle}"/>
+                    <Rectangle Fill="White"
+                               Height="2"
+                               Width="40"
+                               Visibility="{Binding CommVisible}"/>
+                </StackPanel>
             </StackPanel>
             <!--#endregion-->
 
@@ -80,7 +99,7 @@
                 Grid.ColumnSpan="2"
                 prism:RegionManager.RegionName="SettingsRegion"/>
             <!--#endregion-->
-            
+
             <!--#region Title-->
             <Grid 
                 Grid.Row="3">
@@ -97,9 +116,9 @@
             <Grid Grid.Row="4">
                 <Button HorizontalAlignment="Center"
                         VerticalAlignment="Center"
-                        Content="Сброс"
+                        Content="{DynamicResource DefaultButton}"
                         Command="{Binding SetDefaultCommand}"
-                        Style="{DynamicResource BlockButton}"
+                        Style="{DynamicResource BlockButtonStyle}"
                         />
             </Grid>
             <!--#endregion-->

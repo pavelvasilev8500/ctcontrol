@@ -1,0 +1,22 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:v="clr-namespace:System;assembly=mscorlib">
+    <v:String x:Key="Autorun">Autostart</v:String>
+    <v:String x:Key="Background">Wallpaper</v:String>
+    <v:String x:Key="BattaryСharge">Battary charge</v:String>
+    <v:String x:Key="BlockButton">Block</v:String>
+    <v:String x:Key="Close">Close</v:String>
+    <v:String x:Key="Common">Common</v:String>
+    <v:String x:Key="DefaultButton">Reset</v:String>
+    <v:String x:Key="English">English</v:String>
+    <v:String x:Key="Exit">Exit</v:String>
+    <v:String x:Key="Language">Language</v:String>
+    <v:String x:Key="Move">Moving the widget</v:String>
+    <v:String x:Key="Reboot">Reboot</v:String>
+    <v:String x:Key="Russian">Russian</v:String>
+    <v:String x:Key="Settings">Settings</v:String>
+    <v:String x:Key="ShutDown">Shutdown</v:String>
+    <v:String x:Key="Sleep">Sleep</v:String>
+    <v:String x:Key="SystemControl">System control</v:String>
+    <v:String x:Key="WorkTime">Work time</v:String>
+</ResourceDictionary>

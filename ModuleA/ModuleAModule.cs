@@ -20,7 +20,6 @@ namespace ModuleA
         {
             IRegion region = _regionManager.Regions["ContentRegion"];
 
-            //var settings = containerProvider.Resolve<SettingsView>();
             var mainView = containerProvider.Resolve<MainView>();
             region.Add(mainView);
         }

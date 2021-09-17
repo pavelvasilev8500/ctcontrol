@@ -39,11 +39,11 @@
 
             <!--#region Background-->
             <Image
-            Grid.Column="0"
-            Grid.Row="0"
-            Grid.RowSpan="4"
-            Grid.ColumnSpan="2"
-            Source="{DynamicResource Background}"/>
+                Grid.Column="0"
+                Grid.Row="0"
+                Grid.RowSpan="4"
+                Grid.ColumnSpan="2"
+                Source="{DynamicResource BackgroundImage}"/>
             <!--#endregion-->
 
             <ContentControl
@@ -52,7 +52,6 @@
                 Grid.ColumnSpan="2"
                 Grid.RowSpan="4"
                 prism:RegionManager.RegionName="ContentRegion"/>
-
 
             <Grid Grid.Row="0"
                       Grid.Column="1">
@@ -69,16 +68,9 @@
                     </Grid.RowDefinitions>
                     <Grid Grid.Row="2"
                       Background="Transparent"
-                      ToolTip="Перемещение виджета"
                       PreviewMouseLeftButtonDown="Move"/>
                 </Grid>
             </Grid>
-
-            <!--<ContentControl
-                Grid.Row="1"
-                Grid.Column="0"
-                Grid.ColumnSpan="2"
-                prism:RegionManager.RegionName="SettingRegion"/>-->
 
         </Grid>
     </Border>
