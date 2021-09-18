@@ -46,11 +46,11 @@
                     <DrawingGroup Opacity="1">
                         <GeometryDrawing Brush="#FF4BA4CE" Geometry="F1 M200,300z M0,0z M0,0L180,0C191.046,0,200,8.95431,200,20L200,85.4633C125.895,106.619,80.7352,108.472,0,85.4633L0,0z" />
                     </DrawingGroup>
-                    <GeometryDrawing Brush="#FF026CD2" Geometry="F1 M200,300z M0,0z M0,211L200,211 200,300 20,300C8.95431,300,0,291.046,0,280L0,211z" />
+                    <GeometryDrawing Brush="#FF026CD2" Geometry="F1 M200,300z M0,0z M0,235L200,235 200,301 20,301C8.95431,301,0,292.046,0,281L0,235z" />
                     <DrawingGroup Opacity="1">
                         <GeometryDrawing Brush="#FF0195F7">
                             <GeometryDrawing.Geometry>
-                                <RectangleGeometry RadiusX="9" RadiusY="9" Rect="55,268,89,18" />
+                                <RectangleGeometry RadiusX="8.5" RadiusY="8.5" Rect="55,275,89,17" />
                             </GeometryDrawing.Geometry>
                         </GeometryDrawing>
                     </DrawingGroup>

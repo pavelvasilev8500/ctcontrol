@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:prism="http://prismlibrary.com/" 
         xmlns:svg="http://sharpvectors.codeplex.com/svgc/"
+        xmlns:resx="clr-namespace:ModuleA.Properties;assembly=ModuleA"
         prism:ViewModelLocator.AutoWireViewModel="True"
         mc:Ignorable="d"
         Title="ShellWindow"
@@ -69,6 +70,7 @@
                     </Grid.RowDefinitions>
                     <Grid Grid.Row="2"
                       Background="Transparent"
+                      ToolTip="{x:Static resx:Resources.Move}"
                       PreviewMouseLeftButtonDown="Move"/>
                 </Grid>
             </Grid>
