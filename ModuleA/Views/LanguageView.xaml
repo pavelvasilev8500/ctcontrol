@@ -10,11 +10,17 @@
              mc:Ignorable="d" 
              d:DesignHeight="173" d:DesignWidth="200">
     <Grid>
-        <ComboBox Name="Language" 
+        <StackPanel
+            Orientation="Vertical"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center">
+            <ComboBox Name="Language" 
                       HorizontalAlignment="Center"
                       VerticalAlignment="Center"
                       Width="150"
                       ItemsSource="{Binding Languages}"
                       SelectedItem="{Binding SelectedLanguage}"/>
+            
+        </StackPanel>
     </Grid>
 </UserControl>

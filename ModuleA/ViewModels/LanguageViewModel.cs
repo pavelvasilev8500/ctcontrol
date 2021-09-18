@@ -1,10 +1,13 @@
 ﻿using ModuleA.Models;
+using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Regions;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
+using System.Threading;
 using System.Windows;
 
 namespace ModuleA.ViewModels
@@ -13,10 +16,15 @@ namespace ModuleA.ViewModels
     class LanguageViewModel : BindableBase
     {
 
+        CultureInfo russianCulture = new CultureInfo("ru-RU");
+        CultureInfo englishCulture = new CultureInfo("en-US");
+
+        public DelegateCommand ApplyCommand { get; private set; }
+
         public List<string> Languages { get; private set; } = new List<string>()
         {
-            (string)Application.Current.Resources["Russian"],
-            (string)Application.Current.Resources["English"],
+            Properties.Resources.Russian,
+            Properties.Resources.English
         };
 
         private string _selectedLanguage;
@@ -29,50 +37,65 @@ namespace ModuleA.ViewModels
             set 
             { 
                 SetProperty(ref _selectedLanguage, value);
-                if(value.Equals((string)Application.Current.Resources["Russian"]))
+                if(value.Equals(Properties.Resources.Russian))
                 {
                     Properties.Settings.Default.Culture = new CultureInfo("ru-RU", false);
+                    Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("ru-RU");
                     Properties.Settings.Default.Save();
-                    MessageBox.Show($"Russian");
                 }
-                else if (value.Equals((string)Application.Current.Resources["English"]))
+                else if (value.Equals(Properties.Resources.English))
                 {
                     Properties.Settings.Default.Culture = new CultureInfo("en-US", false);
+                    Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("en-US");
                     Properties.Settings.Default.Save();
-                    MessageBox.Show($"English");
                 }
             }
         }
 
         public LanguageViewModel()
         {
-            var russianCulture = new CultureInfo("ru-RU");
-            var englishCulture = new CultureInfo("en-US");
+            //Инициальзация при первом запуске
+            FirsTimeInitialized();
+            //Инициальзация при последующих запусках
+            NextTimeInitialized();
+            ApplyCommand = new DelegateCommand(Apply);
+        }
+
+        private void Apply()
+        {
+            Process.Start(Application.ResourceAssembly.Location);
+            Application.Current.Shutdown();
+        }
+
+        private void FirsTimeInitialized()
+        {
             if (Properties.Settings.Default.Open == 0)
             {
                 Properties.Settings.Default.Culture = CultureInfo.CurrentCulture;
                 if (CultureInfo.CurrentCulture.Equals(russianCulture))
                 {
-                    SelectedLanguage = (string)Application.Current.Resources["Russian"];
+                    SelectedLanguage = Properties.Resources.Russian;
                 }
                 else
                 {
-                    SelectedLanguage = (string)Application.Current.Resources["English"];
+                    SelectedLanguage = Properties.Resources.English;
                 }
                 Properties.Settings.Default.Open++;
                 Properties.Settings.Default.Save();
             }
+        }
+
+        private void NextTimeInitialized()
+        {
             CultureInfo.CurrentCulture = Properties.Settings.Default.Culture;
             if (CultureInfo.CurrentCulture.Equals(russianCulture))
             {
-                SelectedLanguage = (string)Application.Current.Resources["Russian"];
+                SelectedLanguage = Properties.Resources.Russian;
             }
             else
             {
-                SelectedLanguage = (string)Application.Current.Resources["English"];
+                SelectedLanguage = Properties.Resources.English;
             }
-            MessageBox.Show($"CurrentCulture is now {CultureInfo.CurrentCulture.Name}.");
-            MessageBox.Show($"Settings Culture {Properties.Settings.Default.Culture}.");
         }
 
     }

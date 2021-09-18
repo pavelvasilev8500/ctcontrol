@@ -88,7 +88,7 @@
                     <Button
                         Grid.Row="0"
                         Command="{Binding CloseCommand}"
-                        ToolTip="{DynamicResource Close}"
+                        ToolTip="{x:Static resx:Resources.Close}"
                         Style="{DynamicResource SimpleButton}"
                         Margin="1">
                         <Image Source="{DynamicResource CloseImage}"/>
@@ -97,12 +97,12 @@
                         Grid.Row="1"
                         Command="{Binding SettingCommand}"
                         CommandParameter="SettingsView"
-                        ToolTip="{DynamicResource Settings}"
+                        ToolTip="{x:Static resx:Resources.Settings}"
                         Style="{DynamicResource SimpleButton}">
                         <Image Source="{DynamicResource SettingImage}"/>
                     </Button>
                     <Image Grid.Row="2"
-                           ToolTip="{DynamicResource Move}"
+                           ToolTip="{x:Static resx:Resources.Move}"
                            Source="{DynamicResource MoveImage}"
                            Margin="2"/>
                 </Grid>
@@ -118,7 +118,7 @@
                             Margin="36.383,0" 
                             Width="127.234">
                 <TextBlock 
-                       Text="{DynamicResource WorkTime}"
+                       Text="{x:Static resx:Resources.WorkTime}"
                        Foreground="White"
                        FontFamily="Segoe UI"
                        HorizontalAlignment="Center"
@@ -131,7 +131,7 @@
                        Margin="0 5 0 5"
                        FontSize="15"/>
                 <TextBlock 
-                       Text="{DynamicResource BattaryСharge}"
+                       Text="{x:Static resx:Resources.BattaryСharge}"
                        Foreground="White"
                        FontFamily="Segoe UI"
                        HorizontalAlignment="Center"
@@ -144,7 +144,7 @@
                        Margin="0 5 0 0"
                        FontSize="15"/>
                 <TextBlock 
-                       Text="{DynamicResource SystemControl}"
+                       Text="{x:Static resx:Resources.SystemControl}"
                        Foreground="White"
                        FontFamily="Segoe UI"
                        HorizontalAlignment="Center"
@@ -160,7 +160,7 @@
                         HorizontalAlignment="Left"
                         VerticalAlignment="Center"
                         Command="{Binding SleepCommand}"
-                        ToolTip="{DynamicResource Sleep}"
+                        ToolTip="{x:Static resx:Resources.Sleep}"
                         Style="{DynamicResource SimpleButton}" 
                         Width="25" 
                         Height="25">
@@ -170,7 +170,7 @@
                         HorizontalAlignment="Left"
                         VerticalAlignment="Center"
                         Command="{Binding ShutdonCommand}"
-                        ToolTip="{DynamicResource ShutDown}"
+                        ToolTip="{x:Static resx:Resources.ShutDown}"
                         Style="{DynamicResource SimpleButton}" 
                         Width="25"
                         Height="25">
@@ -180,7 +180,7 @@
                         HorizontalAlignment="Left"
                         VerticalAlignment="Center"
                         Command="{Binding RebootCommand}"
-                        ToolTip="{DynamicResource Reboot}"
+                        ToolTip="{x:Static resx:Resources.Reboot}"
                         Style="{DynamicResource SimpleButton}" 
                         Width="25" 
                         Height="25">
@@ -190,7 +190,7 @@
                         HorizontalAlignment="Left"
                         VerticalAlignment="Center"
                         Command="{Binding ExitCommand}"
-                        ToolTip="{DynamicResource Exit}"
+                        ToolTip="{x:Static resx:Resources.Exit}"
                         Style="{DynamicResource SimpleButton}" 
                         Width="25" 
                         Height="25">
@@ -218,7 +218,7 @@
                       Grid.ColumnSpan="2">
                 <Button HorizontalAlignment="Center"
                         VerticalAlignment="Center"
-                        Content="{DynamicResource BlockButton}"
+                        Content="{x:Static resx:Resources.BlockButton}"
                         Command="{Binding BlockCommand}"
                         Style="{DynamicResource BlockButtonStyle}"
                         />
