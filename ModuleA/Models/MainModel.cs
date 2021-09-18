@@ -1,16 +1,13 @@
-﻿using System;
+﻿using ModuleA.ViewModels;
+using System;
 using System.Windows.Forms;
-using System.ComponentModel;
-using System.Runtime.InteropServices;
 
-namespace City.Model
+namespace ModuleA.Models
 {
     public class MainModel
     {
-
-    #region Methods
-
-    public string SetDate()
+        #region Methods
+        public string SetDate()
         {
             DateTime now = DateTime.Now;
             return string.Format(now.ToString("dd. ") + "{0:Y}", now);
@@ -32,18 +29,21 @@ namespace City.Model
         }
         public string SetWorkTime()
         {
-            // Get the system uptime
             int systemUptime = Environment.TickCount;
-            //Using TimeSpan for Time in current format
             var ts = TimeSpan.FromMilliseconds(systemUptime);
-            return string.Format($"{ts.Days}T {ts.Hours}h {ts.Minutes}m {ts.Seconds}s");
+            return string.Format($"{ts.Days}D {ts.Hours}h {ts.Minutes}m {ts.Seconds}s");
         }
         public string SetBatary()
         {
             return (SystemInformation.PowerStatus.BatteryLifePercent * 100).ToString() + "%";
         }
 
+        public void Initialize()
+        {
+            LanguageViewModel languageViewModel = new LanguageViewModel();
+            BackgroundViewModel backgroundViewModel = new BackgroundViewModel();
+            CommonViewModel commonViewModel = new CommonViewModel();
+        }
         #endregion
-
     }
 }

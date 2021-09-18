@@ -1,0 +1,63 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!--#region Background1-->
+    <DrawingImage x:Key="BackgroundImage1">
+        <DrawingImage.Drawing>
+            <DrawingGroup ClipGeometry="M0,0 V300 H200 V0 H0 Z">
+                <GeometryDrawing Brush="#FFFF6D10" Geometry="F1 M200,300z M0,0z M0,0L180,0C191.046,0,200,8.95431,200,20L200,85.4633C123.987,114.316,78.6971,116.685,0,85.4633L0,0z" />
+                <DrawingGroup Transform="1,0,0,1,56,275">
+                    <GeometryDrawing Brush="#FFFF6D10">
+                        <GeometryDrawing.Geometry>
+                            <RectangleGeometry RadiusX="0" RadiusY="0" Rect="0,0,89,17" />
+                        </GeometryDrawing.Geometry>
+                    </GeometryDrawing>
+                </DrawingGroup>
+                <GeometryDrawing Brush="#FFFF6D10">
+                    <GeometryDrawing.Geometry>
+                        <RectangleGeometry RadiusX="0" RadiusY="0" Rect="56,275,89,17" />
+                    </GeometryDrawing.Geometry>
+                </GeometryDrawing>
+                <GeometryDrawing Brush="#FF000000">
+                    <GeometryDrawing.Geometry>
+                        <RectangleGeometry RadiusX="0" RadiusY="0" Rect="57,276,87,15" />
+                    </GeometryDrawing.Geometry>
+                </GeometryDrawing>
+                <GeometryDrawing Brush="#FF000000">
+                    <GeometryDrawing.Geometry>
+                        <RectangleGeometry RadiusX="0" RadiusY="0" Rect="61,275,79,17" />
+                    </GeometryDrawing.Geometry>
+                </GeometryDrawing>
+                <GeometryDrawing Brush="#FFFF6D10" Geometry="F1 M200,300z M0,0z M23.2143,235L200,235 175,265 0,265 23.2143,235z" />
+            </DrawingGroup>
+        </DrawingImage.Drawing>
+    </DrawingImage>
+    <!--#endregion-->
+
+    <!--#region Background2-->
+    <DrawingImage x:Key="BackgroundImage2">
+        <DrawingImage.Drawing>
+            <DrawingGroup ClipGeometry="M0,0 V300 H200 V0 H0 Z">
+                <DrawingGroup Opacity="1">
+                    <DrawingGroup.ClipGeometry>
+                        <RectangleGeometry RadiusX="0" RadiusY="0" Rect="0,0,200,300" />
+                    </DrawingGroup.ClipGeometry>
+                    <GeometryDrawing Brush="#FF0195F7" Geometry="F1 M200,300z M0,0z M0,0L180,0C191.046,0,200,8.95431,200,20L200,300 20,300C8.95431,300,0,291.046,0,280L0,0z" />
+                    <DrawingGroup Opacity="1">
+                        <GeometryDrawing Brush="#FF4BA4CE" Geometry="F1 M200,300z M0,0z M0,0L180,0C191.046,0,200,8.95431,200,20L200,85.4633C125.895,106.619,80.7352,108.472,0,85.4633L0,0z" />
+                    </DrawingGroup>
+                    <GeometryDrawing Brush="#FF026CD2" Geometry="F1 M200,300z M0,0z M0,211L200,211 200,300 20,300C8.95431,300,0,291.046,0,280L0,211z" />
+                    <DrawingGroup Opacity="1">
+                        <GeometryDrawing Brush="#FF0195F7">
+                            <GeometryDrawing.Geometry>
+                                <RectangleGeometry RadiusX="9" RadiusY="9" Rect="55,268,89,18" />
+                            </GeometryDrawing.Geometry>
+                        </GeometryDrawing>
+                    </DrawingGroup>
+                </DrawingGroup>
+            </DrawingGroup>
+        </DrawingImage.Drawing>
+    </DrawingImage>
+    <!--#endregion-->
+    
+</ResourceDictionary>

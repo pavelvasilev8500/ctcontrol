@@ -1,22 +1,16 @@
 ﻿using Microsoft.Win32;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Reflection;
+using System.Windows.Forms;
 
-
-namespace City.Model
+namespace ControlLibrary.Classes
 {
-    class Autorun
+    public class Autorun
     {
-
         private string name = Assembly.GetEntryAssembly().GetName().Name.ToString();
 
         public bool SetAutorunValue(bool autorun)
         {
-            string ExePath = System.Windows.Forms.Application.ExecutablePath;
+            string ExePath = Application.ExecutablePath;
             RegistryKey reg;
             reg = Registry.CurrentUser.CreateSubKey("Software\\Microsoft\\Windows\\CurrentVersion\\Run\\");
             try
@@ -36,3 +30,4 @@ namespace City.Model
         }
     }
 }
+//Компьютер\HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run

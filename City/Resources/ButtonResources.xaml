@@ -26,7 +26,7 @@
     <!--#endregion-->
     
     <!--#region Button-->
-    <Style x:Key="BlockButton" TargetType="Button">
+    <Style x:Key="BlockButtonStyle" TargetType="Button">
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="BorderBrush" Value="Transparent"/>
         <Setter Property="Foreground" Value="White"/>
