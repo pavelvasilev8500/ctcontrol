@@ -71,7 +71,7 @@ namespace ModuleA.ViewModels
         {
             if (Properties.Settings.Default.Open == 0)
             {
-                Properties.Settings.Default.Culture = CultureInfo.CurrentCulture;
+                Properties.Settings.Default.Culture = CultureInfo.DefaultThreadCurrentCulture;
                 if (CultureInfo.CurrentCulture.Equals(russianCulture))
                 {
                     SelectedLanguage = Properties.Resources.Russian;

@@ -111,7 +111,7 @@ namespace ModuleA.ViewModels
             _regionManager.RequestNavigate("SettingsRegion", uri);
             DefaultVisible();
             LangVisible = Visibility.Visible;
-            Title = (string)Application.Current.Resources["Language"];
+            Title = Resources.Language;
         }
 
         private void Background(string uri)
@@ -119,7 +119,7 @@ namespace ModuleA.ViewModels
             _regionManager.RequestNavigate("SettingsRegion", uri);
             DefaultVisible();
             WallVisible = Visibility.Visible;
-            Title = (string)Application.Current.Resources["Background"];
+            Title = Resources.Background;
         }
 
         private void Common(string uri)
@@ -127,7 +127,7 @@ namespace ModuleA.ViewModels
             _regionManager.RequestNavigate("SettingsRegion", uri);
             DefaultVisible();
             CommVisible = Visibility.Visible;
-            Title = (string)Application.Current.Resources["Common"];
+            Title = Resources.Common;
         }
 
         private void SetDefaultSettings()
@@ -140,9 +140,9 @@ namespace ModuleA.ViewModels
             _regionManager.RegisterViewWithRegion<LanguageView>("SettingsRegion");
             DefaultVisible();
             LangVisible = Visibility.Visible;
-            //Title = Properties.Resources.Language;
-            Title = (string)Application.Current.Resources["Language"];
+            Title = Resources.Language;
         }
         #endregion
     }
 }
+//Title = (string)Application.Current.Resources["Language"];

@@ -6,7 +6,7 @@
     //  Событие PropertyChanged возникает после изменения значения параметра.
     //  Событие SettingsLoaded возникает после загрузки значений параметров.
     //  Событие SettingsSaving возникает перед сохранением значений параметров.
-    internal sealed partial class Settings {
+    public sealed partial class Settings {
         
         public Settings() {
             // // Для добавления обработчиков событий для сохранения и изменения параметров раскомментируйте приведенные ниже строки:

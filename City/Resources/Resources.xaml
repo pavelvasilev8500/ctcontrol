@@ -1,38 +1,5 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    
-    <!--#region Background-->
-    <DrawingImage x:Key="BackgroundImage">
-        <DrawingImage.Drawing>
-            <DrawingGroup ClipGeometry="M0,0 V300 H200 V0 H0 Z">
-                <GeometryDrawing Brush="#FFFF6D10" Geometry="F1 M200,300z M0,0z M0,0L180,0C191.046,0,200,8.95431,200,20L200,85.4633C123.987,114.316,78.6971,116.685,0,85.4633L0,0z" />
-                <DrawingGroup Transform="1,0,0,1,56,275">
-                    <GeometryDrawing Brush="#FFFF6D10">
-                        <GeometryDrawing.Geometry>
-                            <RectangleGeometry RadiusX="0" RadiusY="0" Rect="0,0,89,17" />
-                        </GeometryDrawing.Geometry>
-                    </GeometryDrawing>
-                </DrawingGroup>
-                <GeometryDrawing Brush="#FFFF6D10">
-                    <GeometryDrawing.Geometry>
-                        <RectangleGeometry RadiusX="0" RadiusY="0" Rect="56,275,89,17" />
-                    </GeometryDrawing.Geometry>
-                </GeometryDrawing>
-                <GeometryDrawing Brush="#FF000000">
-                    <GeometryDrawing.Geometry>
-                        <RectangleGeometry RadiusX="0" RadiusY="0" Rect="57,276,87,15" />
-                    </GeometryDrawing.Geometry>
-                </GeometryDrawing>
-                <GeometryDrawing Brush="#FF000000">
-                    <GeometryDrawing.Geometry>
-                        <RectangleGeometry RadiusX="0" RadiusY="0" Rect="61,275,79,17" />
-                    </GeometryDrawing.Geometry>
-                </GeometryDrawing>
-                <GeometryDrawing Brush="#FFFF6D10" Geometry="F1 M200,300z M0,0z M23.2143,235L200,235 175,265 0,265 23.2143,235z" />
-            </DrawingGroup>
-        </DrawingImage.Drawing>
-    </DrawingImage>
-    <!--#endregion-->
 
     <!--#region SleepButton-->
     <DrawingImage x:Key="SleepButton">

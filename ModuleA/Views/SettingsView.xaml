@@ -38,6 +38,7 @@
                     Margin="10 0 0 0"
                     Command="{Binding MainCommand}"
                     CommandParameter="MainView"
+                    ToolTip="{x:Static resx:Resources.BackButton}"
                     Style="{DynamicResource SimpleButton}"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Center">
@@ -56,7 +57,7 @@
                 <StackPanel 
                     Margin="10 0 10 0"
                     Orientation="Vertical">
-                    <Button Content="{DynamicResource Language}"
+                    <Button Content="{x:Static resx:Resources.Language}"
                             Command="{Binding LanguageCommand}"
                             CommandParameter="LanguageView"
                             Style="{DynamicResource BlockButtonStyle}"/>
@@ -68,7 +69,7 @@
                 <StackPanel
                     Margin="10 0 10 0"
                     Orientation="Vertical">
-                    <Button Content="{DynamicResource Background}"
+                    <Button Content="{x:Static resx:Resources.Background}"
                             Command="{Binding BackgroundCommand}"
                             CommandParameter="BackgroundView"
                             Style="{DynamicResource BlockButtonStyle}"/>
@@ -80,7 +81,7 @@
                 <StackPanel
                     Margin="10 0 10 0"
                     Orientation="Vertical">
-                    <Button Content="{DynamicResource Common}"
+                    <Button Content="{x:Static resx:Resources.Common}"
                             Command="{Binding CommonCommand}"
                             CommandParameter="CommonView"
                             Style="{DynamicResource BlockButtonStyle}"/>
@@ -116,7 +117,7 @@
             <Grid Grid.Row="4">
                 <Button HorizontalAlignment="Center"
                         VerticalAlignment="Center"
-                        Content="{DynamicResource DefaultButton}"
+                        Content="{x:Static resx:Resources.DefaultButton}"
                         Command="{Binding SetDefaultCommand}"
                         Style="{DynamicResource BlockButtonStyle}"
                         />

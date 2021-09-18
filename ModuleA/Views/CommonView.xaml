@@ -15,7 +15,7 @@
         Margin="30 0 0 0">
         <CheckBox IsThreeState="False" 
                   IsChecked="{Binding Switcher}"
-                  Content="{DynamicResource Autorun}"
+                  Content="{x:Static resx:Resources.Autorun}"
                   Foreground="White"
                   />
     </Grid>
