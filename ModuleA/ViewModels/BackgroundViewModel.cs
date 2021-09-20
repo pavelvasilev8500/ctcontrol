@@ -47,6 +47,9 @@ namespace ModuleA.ViewModels
                     case 1:
                         Background = (System.Windows.Media.DrawingImage)Application.Current.Resources["BackgroundImage2"];
                         break;
+                    case 2:
+                        Background = (System.Windows.Media.DrawingImage)Application.Current.Resources["BackgroundImage3"];
+                        break;
                 }
             }
         }
@@ -61,7 +64,7 @@ namespace ModuleA.ViewModels
 
         private void Next()
         {
-            if(Properties.Settings.Default.Id >= 1)
+            if(Properties.Settings.Default.Id >= 2)
             {
                 Properties.Settings.Default.Id = 0;
                 Properties.Settings.Default.Save();
@@ -85,7 +88,7 @@ namespace ModuleA.ViewModels
         {
             if (Properties.Settings.Default.Id <= 0)
             {
-                Properties.Settings.Default.Id = 1;
+                Properties.Settings.Default.Id = 2;
                 Properties.Settings.Default.Save();
                 WallpaperID = Properties.Settings.Default.Id;
                 return;

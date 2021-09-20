@@ -60,4 +60,16 @@
     </DrawingImage>
     <!--#endregion-->
     
+    <!--#region Background 3-->
+    <DrawingImage x:Key="BackgroundImage3">
+        <DrawingImage.Drawing>
+            <DrawingGroup ClipGeometry="M0,0 V300 H200 V0 H0 Z">
+                <GeometryDrawing Brush="#FFFFFFFF" Geometry="F1 M200,300z M0,0z M0,0L180,0C191.046,0,200,8.95431,200,20L200,300 20,300C8.95431,300,0,291.046,0,280L0,0z" />
+                <GeometryDrawing Brush="#FFFF6D10" Geometry="F1 M200,300z M0,0z M0,0L180,0C191.046,0,200,8.95431,200,20L200,85.4633C123.987,114.316,78.6971,116.685,0,85.4633L0,0z" />
+                <GeometryDrawing Brush="#FFFF6D10" Geometry="F1 M200,300z M0,0z M23.2143,235L200,235 175,265 0,265 23.2143,235z" />
+            </DrawingGroup>
+        </DrawingImage.Drawing>
+    </DrawingImage>
+    <!--#endregion-->
+    
 </ResourceDictionary>

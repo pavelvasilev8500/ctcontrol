@@ -145,6 +145,22 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Thems\BlueTheme - Копировать %282%29.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Thems\BlueTheme - Копировать %283%29.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Thems\BlueTheme - Копировать %284%29.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Thems\WhiteOrangeTheme.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Thems\BlueTheme.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -182,6 +198,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Frame 588.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\background-1.png" />
+    <Resource Include="Resources\background-2.png" />
+    <Resource Include="Resources\background-3.png" />
+    <Resource Include="Resources\background.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
