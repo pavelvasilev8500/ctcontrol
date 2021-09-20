@@ -70,5 +70,17 @@ namespace ModuleA.Properties {
                 this["Open"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int LanguageOpen {
+            get {
+                return ((int)(this["LanguageOpen"]));
+            }
+            set {
+                this["LanguageOpen"] = value;
+            }
+        }
     }
 }

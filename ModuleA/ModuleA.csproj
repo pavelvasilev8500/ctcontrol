@@ -145,6 +145,14 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Thems\BlueTheme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Thems\DefaultTheme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\BackgroundView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

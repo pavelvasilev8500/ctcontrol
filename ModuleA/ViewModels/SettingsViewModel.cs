@@ -91,6 +91,7 @@ namespace ModuleA.ViewModels
             _regionManager = regionManager;
             LoadDefaultSettingsView();
         }
+
         #region Methods
         private void DefaultVisible()
         {
@@ -112,6 +113,7 @@ namespace ModuleA.ViewModels
             DefaultVisible();
             LangVisible = Visibility.Visible;
             Title = Resources.Language;
+
         }
 
         private void Background(string uri)

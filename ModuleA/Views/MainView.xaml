@@ -119,7 +119,7 @@
                             Width="127.234">
                 <TextBlock 
                        Text="{x:Static resx:Resources.WorkTime}"
-                       Foreground="White"
+                       Style="{DynamicResource TextStyle}"
                        FontFamily="Segoe UI"
                        HorizontalAlignment="Center"
                        FontSize="15"/>

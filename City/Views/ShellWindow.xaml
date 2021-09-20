@@ -40,13 +40,19 @@
             <!--#endregion-->
 
             <!--#region Background-->
+            <!--<Image
+                Grid.Column="0"
+                Grid.Row="0"
+                Grid.RowSpan="4"
+                Grid.ColumnSpan="2"
+                Source="{Binding Background}"/>-->
             <Image
                 Grid.Column="0"
                 Grid.Row="0"
                 Grid.RowSpan="4"
                 Grid.ColumnSpan="2"
-                Source="{Binding Background}"/>
-            <!--#endregion-->
+                Style="{DynamicResource WallPaper}"/>
+                <!--#endregion-->
 
             <ContentControl
                 Grid.Row="0"
