@@ -17,5 +17,8 @@
     <Setting Name="LanguageOpen" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
+    <Setting Name="ip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">192.168.0.107:4242</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

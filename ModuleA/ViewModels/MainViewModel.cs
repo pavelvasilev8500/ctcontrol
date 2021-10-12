@@ -10,6 +10,8 @@ using Newtonsoft.Json;
 using System.Diagnostics;
 using System.Net;
 using System.IO;
+using System.Net.NetworkInformation;
+using System.Text;
 
 namespace ModuleA.ViewModels
 {
@@ -191,7 +193,14 @@ namespace ModuleA.ViewModels
             Batary = mainModel.SetBatary();
             Data data = new Data {IDdata = "1", date = $"{Date}", time = $"{Time}", second = $"{Second}", day = $"{Day}", worktime = $"{WorkTime}", batary = $"{Batary}" };
             string json = JsonConvert.SerializeObject(data);
-            FirsTimeInitialized(json);
+            try
+            {
+                FirsTimeInitialized(json);
+            }
+            catch (Exception)
+            {
+                return;
+            }
         }
         #endregion
 
@@ -256,7 +265,7 @@ namespace ModuleA.ViewModels
                 database.UseShellExecute = false;
                 database.FileName = "cmd";
                 //команда, которую надо выполнить
-                database.Arguments = @"/c ""C://Program Files//MongoDB//Server//5.0//bin//mongod.exe"" --dbpath C:\apps\ctcontrol\data ";
+                database.Arguments = @"/k ""C://Program Files//MongoDB//Server//5.0//bin//mongod.exe"" --dbpath C:\apps\ctcontrol\data ";
                 //  /c - после выполнения команды консоль закроется
                 //  /к - не закрывать консоль после выполнения команды
                 database.CreateNoWindow = true;
@@ -276,7 +285,7 @@ namespace ModuleA.ViewModels
                 server.UseShellExecute = false;
                 server.FileName = "cmd";
                 //команда, которую надо выполнить
-                server.Arguments = @"/c node C://serverApps//NodeServer//app.js";
+                server.Arguments = @"/k node C://serverApps//NodeServer//app.js";
                 //  /c - после выполнения команды консоль закроется
                 //  /к - не закрывать консоль после выполнения команды
                 server.CreateNoWindow = true;
@@ -296,7 +305,7 @@ namespace ModuleA.ViewModels
                 using (StreamReader reader = new StreamReader(stream))
                 {
                     string line = reader.ReadLine();
-                    if(line.Equals("[]"))
+                    if (line.Equals("[]"))
                     {
                         server.Post(json);
                     }

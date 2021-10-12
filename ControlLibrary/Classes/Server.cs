@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace ControlLibrary.Classes
 {
@@ -16,38 +17,54 @@ namespace ControlLibrary.Classes
 
         public void Post(string json)
         {
-            var httpRequest = (HttpWebRequest)WebRequest.Create("http://192.168.0.107:4242/api/pcdata/");
-            httpRequest.Method = "POST";
-            httpRequest.ContentType = "application/json";
-            using (var requestStream = httpRequest.GetRequestStream())
-            using (var writer = new StreamWriter(requestStream))
+            try
             {
-                writer.Write(json);
+                var httpRequest = (HttpWebRequest)WebRequest.Create("http://192.168.0.107:4242/api/pcdata/");
+                httpRequest.Method = "POST";
+                httpRequest.ContentType = "application/json";
+                using (var requestStream = httpRequest.GetRequestStream())
+                using (var writer = new StreamWriter(requestStream))
+                {
+                    writer.Write(json);
+                }
+                using (var httpResponse = httpRequest.GetResponse())
+                using (var responseStream = httpResponse.GetResponseStream())
+                using (var reader = new StreamReader(responseStream))
+                {
+                    string response = reader.ReadToEnd();
+                }
             }
-            using (var httpResponse = httpRequest.GetResponse())
-            using (var responseStream = httpResponse.GetResponseStream())
-            using (var reader = new StreamReader(responseStream))
+            catch (Exception e)
             {
-                string response = reader.ReadToEnd();
+                MessageBox.Show($"{e}");
             }
+
         }
 
         public void Put(string json)
         {
-            var httpRequest = (HttpWebRequest)WebRequest.Create("http://192.168.0.107:4242/api/pcdata/update/1");
-            httpRequest.Method = "PUT";
-            httpRequest.ContentType = "application/json";
-            using (var requestStream = httpRequest.GetRequestStream())
-            using (var writer = new StreamWriter(requestStream))
+            try
             {
-                writer.Write(json);
+                var httpRequest = (HttpWebRequest)WebRequest.Create("http://192.168.0.107:4242/api/pcdata/update/1");
+                httpRequest.Method = "PUT";
+                httpRequest.ContentType = "application/json";
+                using (var requestStream = httpRequest.GetRequestStream())
+                using (var writer = new StreamWriter(requestStream))
+                {
+                    writer.Write(json);
+                }
+                using (var httpResponse = httpRequest.GetResponse())
+                using (var responseStream = httpResponse.GetResponseStream())
+                using (var reader = new StreamReader(responseStream))
+                {
+                    string response = reader.ReadToEnd();
+                }
             }
-            using (var httpResponse = httpRequest.GetResponse())
-            using (var responseStream = httpResponse.GetResponseStream())
-            using (var reader = new StreamReader(responseStream))
+            catch (Exception e)
             {
-                string response = reader.ReadToEnd();
+                MessageBox.Show($"{e}");
             }
+
         }
     }
 }
