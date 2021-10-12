@@ -64,9 +64,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Autorun.cs" />
+    <Compile Include="Classes\Data.cs" />
     <Compile Include="Classes\DataPC.cs" />
     <Compile Include="Classes\Position.cs" />
     <Compile Include="Classes\Reboot.cs" />
+    <Compile Include="Classes\Server.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

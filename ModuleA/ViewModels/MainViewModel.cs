@@ -6,6 +6,10 @@ using System.Windows.Forms;
 using System;
 using Prism.Regions;
 using ModuleA.Models;
+using Newtonsoft.Json;
+using System.Diagnostics;
+using System.Net;
+using System.IO;
 
 namespace ModuleA.ViewModels
 {
@@ -124,6 +128,7 @@ namespace ModuleA.ViewModels
         Reboot reboot = new Reboot();
         MainModel mainModel = new MainModel();
         Timer timer = new Timer();
+        Server server = new Server();
         #endregion
 
         #region Commands
@@ -157,6 +162,8 @@ namespace ModuleA.ViewModels
             SettingCommand = new DelegateCommand<string>(Settings);
             #endregion
             #region Methods
+            StartDatabase();
+            Startserver();
             StartClock();
             mainModel.Initialize();
             #endregion
@@ -182,6 +189,9 @@ namespace ModuleA.ViewModels
             WorkTime = mainModel.SetWorkTime();
             Day = mainModel.SetDay();
             Batary = mainModel.SetBatary();
+            Data data = new Data {IDdata = "1", date = $"{Date}", time = $"{Time}", second = $"{Second}", day = $"{Day}", worktime = $"{WorkTime}", batary = $"{Batary}" };
+            string json = JsonConvert.SerializeObject(data);
+            FirsTimeInitialized(json);
         }
         #endregion
 
@@ -233,6 +243,70 @@ namespace ModuleA.ViewModels
         private void Close()
         {
             Environment.Exit(0);
+        }
+        #endregion
+
+        #region StartServer&DataBase
+        private void StartDatabase()
+        {
+            try
+            {
+                ProcessStartInfo database = new ProcessStartInfo();
+                //Имя запускаемого приложения
+                database.UseShellExecute = false;
+                database.FileName = "cmd";
+                //команда, которую надо выполнить
+                database.Arguments = @"/c ""C://Program Files//MongoDB//Server//5.0//bin//mongod.exe"" --dbpath C:\apps\ctcontrol\data ";
+                //  /c - после выполнения команды консоль закроется
+                //  /к - не закрывать консоль после выполнения команды
+                database.CreateNoWindow = true;
+                Process.Start(database);
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
+            }
+        }
+        private void Startserver()
+        {
+            try
+            {
+                ProcessStartInfo server = new ProcessStartInfo();
+                //Имя запускаемого приложения
+                server.UseShellExecute = false;
+                server.FileName = "cmd";
+                //команда, которую надо выполнить
+                server.Arguments = @"/c node C://serverApps//NodeServer//app.js";
+                //  /c - после выполнения команды консоль закроется
+                //  /к - не закрывать консоль после выполнения команды
+                server.CreateNoWindow = true;
+                Process.Start(server);
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
+            }
+        }
+        private void FirsTimeInitialized(string json)
+        {
+            WebRequest request = WebRequest.Create("http://192.168.0.107:4242/api/pcdata/");
+            WebResponse response = request.GetResponse();
+            using (Stream stream = response.GetResponseStream())
+            {
+                using (StreamReader reader = new StreamReader(stream))
+                {
+                    string line = reader.ReadLine();
+                    if(line.Equals("[]"))
+                    {
+                        server.Post(json);
+                    }
+                    else
+                    {
+                        server.Put(json);
+                    }
+                }
+            }
+            response.Close();
         }
         #endregion
 
