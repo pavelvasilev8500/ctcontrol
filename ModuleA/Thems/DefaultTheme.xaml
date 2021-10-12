@@ -3,7 +3,12 @@
     <Style x:Key="WallPaper" TargetType="Image">
         <Setter Property="Source" Value="{DynamicResource BackgroundImage1}"/>
     </Style>
-    <Style x:Key="TextStyle" TargetType="TextBlock">
+    <Style x:Key="TimeInfoStyle" TargetType="TextBlock">
         <Setter Property="Foreground" Value="White"/>
+        <Setter Property="FontFamily" Value="Segoe UI"/>
+        <Setter Property="FontSize" Value="15"/>
+    </Style>
+    <Style x:Key="TextStyle" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="Red"/>
     </Style>
 </ResourceDictionary>

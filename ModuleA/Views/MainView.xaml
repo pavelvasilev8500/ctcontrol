@@ -125,27 +125,27 @@
                        FontSize="15"/>
                 <TextBlock 
                        Text="{Binding WorkTime}"
-                       Foreground="White"
+                       Style="{DynamicResource TextStyle}"
                        FontFamily="Segoe UI"
                        HorizontalAlignment="Center"
                        Margin="0 5 0 5"
                        FontSize="15"/>
                 <TextBlock 
                        Text="{x:Static resx:Resources.BattaryСharge}"
-                       Foreground="White"
+                       Style="{DynamicResource TextStyle}"
                        FontFamily="Segoe UI"
                        HorizontalAlignment="Center"
                        FontSize="15"/>
                 <TextBlock 
                        Text="{Binding Batary}"
-                       Foreground="White"
+                       Style="{DynamicResource TextStyle}"
                        FontFamily="Segoe UI"
                        HorizontalAlignment="Center"
                        Margin="0 5 0 0"
                        FontSize="15"/>
                 <TextBlock 
                        Text="{x:Static resx:Resources.SystemControl}"
-                       Foreground="White"
+                       Style="{DynamicResource TextStyle}"
                        FontFamily="Segoe UI"
                        HorizontalAlignment="Center"
                        FontSize="15"/>

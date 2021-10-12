@@ -4,6 +4,6 @@
         <Setter Property="Source" Value="pack://application:,,,/ModuleA;component/Resources/background.png"/>
     </Style>
     <Style x:Key="TextStyle" TargetType="TextBlock">
-        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Foreground" Value="Black"/>
     </Style>
 </ResourceDictionary>

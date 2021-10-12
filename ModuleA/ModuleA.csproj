@@ -145,18 +145,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Thems\BlueTheme - Копировать %282%29.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Thems\BlueTheme - Копировать %283%29.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Thems\BlueTheme - Копировать %284%29.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Thems\WhiteOrangeTheme.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
