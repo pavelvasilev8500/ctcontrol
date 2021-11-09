@@ -12,7 +12,7 @@ namespace ControlLibrary.Classes
         }
         public string SetTime()
         {
-            return DateTime.Now.ToString("HH:mm");
+            return DateTime.Now.ToString("HH:mm:ss");
         }
         public string SetSecond()
         {

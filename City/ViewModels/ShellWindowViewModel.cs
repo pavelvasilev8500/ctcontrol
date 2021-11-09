@@ -48,15 +48,6 @@ namespace City.ViewModels
                         Application.Current.Resources.MergedDictionaries.Add(resourceDict1);
                         //Background = (System.Windows.Media.DrawingImage)App.Current.Resources["BackgroundImage2"];
                         break;
-                    case 2:
-                        ResourceDictionary resourceDict2 =
-                            Application.LoadComponent(new Uri("/ModuleA;component/Thems/WhiteOrangeTheme.xaml", UriKind.Relative)) as ResourceDictionary;
-                        // очищаем коллекцию ресурсов приложения
-                        Application.Current.Resources.Clear();
-                        // добавляем загруженный словарь ресурсов
-                        Application.Current.Resources.MergedDictionaries.Add(resourceDict2);
-                        //Background = (System.Windows.Media.DrawingImage)App.Current.Resources["BackgroundImage2"];
-                        break;
                 }
             }
         }

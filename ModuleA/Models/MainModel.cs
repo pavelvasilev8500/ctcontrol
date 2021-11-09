@@ -44,6 +44,8 @@ namespace ModuleA.Models
             BackgroundViewModel backgroundViewModel = new BackgroundViewModel();
             CommonViewModel commonViewModel = new CommonViewModel();
         }
+
+
         #endregion
     }
 }

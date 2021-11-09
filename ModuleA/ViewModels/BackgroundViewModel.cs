@@ -47,9 +47,6 @@ namespace ModuleA.ViewModels
                     case 1:
                         Background = (System.Windows.Media.DrawingImage)Application.Current.Resources["BackgroundImage2"];
                         break;
-                    case 2:
-                        Background = (System.Windows.Media.DrawingImage)Application.Current.Resources["BackgroundImage3"];
-                        break;
                 }
             }
         }

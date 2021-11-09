@@ -21,5 +21,7 @@ namespace ControlLibrary.Classes
         public string worktime { get; set; }
 
         public string batary { get; set; }
+
+        public int controller { get; set; }
     }
 }

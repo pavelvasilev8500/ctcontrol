@@ -12,6 +12,8 @@ using System.Net;
 using System.IO;
 using System.Net.NetworkInformation;
 using System.Text;
+using System.Threading.Tasks;
+using System.Net.Sockets;
 
 namespace ModuleA.ViewModels
 {
@@ -130,7 +132,9 @@ namespace ModuleA.ViewModels
         Reboot reboot = new Reboot();
         MainModel mainModel = new MainModel();
         Timer timer = new Timer();
+        Timer datatimer = new Timer();
         Server server = new Server();
+        DataPC dataPC = new DataPC();
         #endregion
 
         #region Commands
@@ -167,6 +171,7 @@ namespace ModuleA.ViewModels
             StartDatabase();
             Startserver();
             StartClock();
+            StartDataClock();
             mainModel.Initialize();
             #endregion
             #region Regions
@@ -183,6 +188,38 @@ namespace ModuleA.ViewModels
             timer.Start();
         }
 
+        private void StartDataClock()
+        {
+            datatimer.Enabled = true;
+            datatimer.Tick += Datatimer_Tick;
+            datatimer.Interval = 1000;
+            datatimer.Start();
+        }
+
+        private void Controller()
+        {
+
+        }
+
+        private void Datatimer_Tick(object sender, EventArgs e)
+        {
+            Data data = new Data { IDdata = "1", 
+                date = $"{dataPC.SetDate()}", 
+                time = $"{dataPC.SetTime()}", 
+                day = $"{dataPC.SetDay()}", 
+                worktime = $"{dataPC.SetWorkTime()}", 
+                batary = $"{dataPC.SetBatary()}" };
+            string json = JsonConvert.SerializeObject(data);
+            try
+            {
+                FirsTimeInitializedAsync(json);
+            }
+            catch (Exception)
+            {
+                return;
+            }
+        }
+
         private void Timer_Tick(object sender, EventArgs e)
         {
             Date = mainModel.SetDate();
@@ -191,16 +228,6 @@ namespace ModuleA.ViewModels
             WorkTime = mainModel.SetWorkTime();
             Day = mainModel.SetDay();
             Batary = mainModel.SetBatary();
-            Data data = new Data {IDdata = "1", date = $"{Date}", time = $"{Time}", second = $"{Second}", day = $"{Day}", worktime = $"{WorkTime}", batary = $"{Batary}" };
-            string json = JsonConvert.SerializeObject(data);
-            try
-            {
-                FirsTimeInitialized(json);
-            }
-            catch (Exception)
-            {
-                return;
-            }
         }
         #endregion
 
@@ -296,26 +323,59 @@ namespace ModuleA.ViewModels
                 Debug.WriteLine(e);
             }
         }
-        private void FirsTimeInitialized(string json)
+
+        private async void FirsTimeInitializedAsync(string json)
         {
-            WebRequest request = WebRequest.Create("http://192.168.0.107:4242/api/pcdata/");
-            WebResponse response = request.GetResponse();
-            using (Stream stream = response.GetResponseStream())
+            await Task.Run(() => FirsTimeInitialized(json));
+        }
+
+        private string getIP()
+        {
+            try
             {
-                using (StreamReader reader = new StreamReader(stream))
+                using (Socket socket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, 0))
                 {
-                    string line = reader.ReadLine();
-                    if (line.Equals("[]"))
-                    {
-                        server.Post(json);
-                    }
-                    else
-                    {
-                        server.Put(json);
-                    }
+                    socket.Connect("8.8.8.8", 65530);
+                    IPEndPoint endPoint = socket.LocalEndPoint as IPEndPoint;
+                    return "http://" + endPoint.Address.MapToIPv4().ToString() + ":4242/api/pcdata/";
                 }
             }
-            response.Close();
+            catch (Exception)
+            {
+                return "";
+            }
+        }
+
+        private void FirsTimeInitialized(string json)
+        {
+            string ip = getIP();
+            try
+            {
+                WebRequest request = WebRequest.Create(ip);
+                //WebRequest request = WebRequest.Create("http://192.168.0.107:4242/api/pcdata/");
+                request.Timeout = 1000;
+                WebResponse response = request.GetResponse();
+                using (Stream stream = response.GetResponseStream())
+                {
+                    using (StreamReader reader = new StreamReader(stream))
+                    {
+                        string line = reader.ReadLine();
+                        if (line.Equals("[]"))
+                        {
+                            server.Post(json, ip);
+                        }
+                        else
+                        {
+                            server.Put(json, ip);
+                        }
+                    }
+                }
+                response.Close();
+            }
+            catch (Exception)
+            {
+                return;
+            }
         }
         #endregion
 

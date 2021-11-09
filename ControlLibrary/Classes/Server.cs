@@ -15,11 +15,11 @@ namespace ControlLibrary.Classes
 
         DataPC dataPC = new DataPC();
 
-        public void Post(string json)
+        public void Post(string json, string ip)
         {
             try
             {
-                var httpRequest = (HttpWebRequest)WebRequest.Create("http://192.168.0.107:4242/api/pcdata/");
+                var httpRequest = (HttpWebRequest)WebRequest.Create(ip);
                 httpRequest.Method = "POST";
                 httpRequest.ContentType = "application/json";
                 using (var requestStream = httpRequest.GetRequestStream())
@@ -41,11 +41,12 @@ namespace ControlLibrary.Classes
 
         }
 
-        public void Put(string json)
+        public void Put(string json, string ip)
         {
+            string fullip = ip + "update/1";
             try
             {
-                var httpRequest = (HttpWebRequest)WebRequest.Create("http://192.168.0.107:4242/api/pcdata/update/1");
+                var httpRequest = (HttpWebRequest)WebRequest.Create(fullip);
                 httpRequest.Method = "PUT";
                 httpRequest.ContentType = "application/json";
                 using (var requestStream = httpRequest.GetRequestStream())
