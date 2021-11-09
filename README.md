@@ -6,3 +6,9 @@ Widget like `CTcontrol` in Windows 7
 
 System Requrement
 .NET Framework 4.6.1
+
+Functions
+
+|   fb    |   sb   |   tb  |   fb   | 
+| ------- | ------ | ----- | ------ |
+| sleep | poweroff | reset |  block |
