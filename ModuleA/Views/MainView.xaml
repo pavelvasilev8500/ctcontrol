@@ -25,15 +25,37 @@
                 <RowDefinition Height="35"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="170"/>
+                <ColumnDefinition Width="30"/>
+                <ColumnDefinition Width="140"/>
                 <ColumnDefinition Width="30"/>
             </Grid.ColumnDefinitions>
             <!--#endregion-->
-            
+
+            <!--#region WindgetControl-->
+            <Grid Grid.Row="0"
+                      Grid.Column="0">
+                <Grid
+                        Width="30"
+                        Height="48"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Top"
+                        Margin="0 20 0 0">
+                    <Button
+                        Grid.Row="1"
+                        Command="{Binding ConnectionCommand}"
+                        CommandParameter="ConnectionView"
+                        ToolTip="{x:Static resx:Resources.Mobile}"
+                        Style="{DynamicResource SimpleButton}"
+                        Margin="1">
+                        <Image Source="{DynamicResource QRImage}"/>
+                    </Button>
+                </Grid>
+            </Grid>
+            <!--#endregion-->
+
             <!--#region TimeInfo-->
             <Grid Grid.Row="0"
-                      Grid.Column="0"
-                      Grid.ColumnSpan="2">
+                      Grid.Column="1">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
@@ -73,7 +95,7 @@
 
             <!--#region WindgetControl-->
             <Grid Grid.Row="0"
-                      Grid.Column="1">
+                      Grid.Column="2">
                 <Grid
                         Width="14"
                         Height="48"
@@ -112,7 +134,7 @@
             <!--#region SystemInfo-->
             <StackPanel Grid.Row="1"
                             Grid.Column="0"
-                            Grid.ColumnSpan="2"
+                            Grid.ColumnSpan="3"
                             HorizontalAlignment="Center"
                             Orientation="Vertical" 
                             Margin="36.383,0" 
@@ -155,7 +177,7 @@
             <!--#region Controls-->
             <Grid Grid.Row="2"
                       Grid.Column="0"
-                      Grid.ColumnSpan="2">
+                      Grid.ColumnSpan="3">
                 <Button Margin="25 0 0 0"
                         HorizontalAlignment="Left"
                         VerticalAlignment="Center"
@@ -215,7 +237,7 @@
             <!--#region ConterolButton-->
             <Grid Grid.Row="3"
                       Grid.Column="0"
-                      Grid.ColumnSpan="2">
+                      Grid.ColumnSpan="3">
                 <Button HorizontalAlignment="Center"
                         VerticalAlignment="Center"
                         Content="{x:Static resx:Resources.BlockButton}"

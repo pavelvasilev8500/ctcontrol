@@ -27,6 +27,7 @@ namespace ModuleA
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterForNavigation<MainView>();
+            containerRegistry.RegisterForNavigation<ConnectionView>();
             containerRegistry.RegisterForNavigation<SettingsView>();
             containerRegistry.RegisterForNavigation<LanguageView>();
             containerRegistry.RegisterForNavigation<BackgroundView>();

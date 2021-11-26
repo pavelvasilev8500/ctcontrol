@@ -153,6 +153,9 @@
   <data name="Language" xml:space="preserve">
     <value>Язык</value>
   </data>
+  <data name="Mobile" xml:space="preserve">
+    <value>Мобильное подключение</value>
+  </data>
   <data name="Move" xml:space="preserve">
     <value>Перемещение виджета</value>
   </data>

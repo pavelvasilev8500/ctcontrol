@@ -169,6 +169,15 @@ namespace ModuleA.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Мобильное подключение.
+        /// </summary>
+        public static string Mobile {
+            get {
+                return ResourceManager.GetString("Mobile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Перемещение виджета.
         /// </summary>
         public static string Move {

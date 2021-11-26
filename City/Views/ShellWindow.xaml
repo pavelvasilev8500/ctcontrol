@@ -13,6 +13,8 @@
         WindowStyle="None"
         AllowsTransparency="True"
         Background="Transparent"
+        MaxHeight="300"
+        MaxWidth="200"
         >
 
     <Border

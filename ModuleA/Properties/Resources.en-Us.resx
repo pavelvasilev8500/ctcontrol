@@ -153,6 +153,9 @@
   <data name="Language" xml:space="preserve">
     <value>Language</value>
   </data>
+  <data name="Mobile" xml:space="preserve">
+    <value>Mobile connection </value>
+  </data>
   <data name="Move" xml:space="preserve">
     <value>Moving the widget</value>
   </data>

@@ -14,10 +14,6 @@ namespace ControlLibrary.Classes
         {
             return DateTime.Now.ToString("HH:mm:ss");
         }
-        public string SetSecond()
-        {
-            return DateTime.Now.ToString("ss");
-        }
         public string SetDay()
         {
             char[] day = DateTime.Now.ToString("dddd").ToCharArray();
