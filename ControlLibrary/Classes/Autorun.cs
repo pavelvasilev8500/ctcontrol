@@ -31,3 +31,4 @@ namespace ControlLibrary.Classes
     }
 }
 //Компьютер\HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
+//C:\Users\City\AppData\Local\Apps

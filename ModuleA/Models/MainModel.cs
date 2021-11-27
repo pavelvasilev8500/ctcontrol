@@ -21,8 +21,6 @@ namespace ModuleA.Models
         public MainModel()
         {
             StartDataClock();
-            //Process.Start("pack://application:,,,/City;component/server.exe");
-            //Process.Start(@"C:\\apps\\ctcontrol\\ModuleA\\Resources\\server.exe");
         }
 
         #region Methods
