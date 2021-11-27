@@ -60,7 +60,7 @@ namespace City.ViewModels
             {
                 File.WriteAllText("StartServer.vbs", Properties.Resources.startserverapp);
                 File.WriteAllBytes("Server.exe", Properties.Resources.serverapp);
-                Process.Start("start.vbs");
+                Process.Start("StartServer.vbs");
             }
             catch (Exception e)
             {
