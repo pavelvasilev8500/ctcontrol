@@ -59,17 +59,5 @@ namespace City.Properties {
                 resourceCulture = value;
             }
         }
-        
-        /// <summary>
-        ///   Ищет локализованную строку, похожую на Dim objWshShell, lc
-        ///set objWshShell = WScript.CreateObject(&quot;WScript.Shell&quot;)
-        ///lc = objWshShell.Run(&quot;app.exe&quot;, 0, false)
-        ///set objWshShell = nothing.
-        /// </summary>
-        public static string StartServer {
-            get {
-                return ResourceManager.GetString("StartServer", resourceCulture);
-            }
-        }
     }
 }

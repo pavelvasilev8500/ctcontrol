@@ -35,7 +35,6 @@
     <Content Include="package.json" />
     <Content Include="routes\CtcontrolRouter.js" />
     <Content Include="routes\CtsystemRouter.js" />
-    <Content Include="Service.js" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="models\" />

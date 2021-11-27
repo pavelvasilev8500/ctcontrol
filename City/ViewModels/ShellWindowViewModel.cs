@@ -1,8 +1,6 @@
 ﻿using City.Models;
 using Prism.Mvvm;
 using System;
-using System.Diagnostics;
-using System.IO;
 using System.Windows;
 
 namespace City.ViewModels
@@ -56,13 +54,6 @@ namespace City.ViewModels
 
         public ShellWindowViewModel()
         {
-            try
-            {
-                Process.Start(Environment.CurrentDirectory.ToString() + @"\" + "StartServer.vbs");
-            }
-            catch (Exception)
-            {
-            }
             WallpaperID = ModuleA.Properties.Settings.Default.Id;
         }
     }

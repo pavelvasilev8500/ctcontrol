@@ -73,6 +73,7 @@
     <Compile Include="Classes\Position.cs" />
     <Compile Include="Classes\Reboot.cs" />
     <Compile Include="Classes\Server.cs" />
+    <Compile Include="Classes\ServerManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

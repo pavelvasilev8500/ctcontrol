@@ -6,15 +6,6 @@ using System.Windows.Forms;
 using System;
 using Prism.Regions;
 using ModuleA.Models;
-using Newtonsoft.Json;
-using System.Diagnostics;
-using System.Net;
-using System.IO;
-using System.Net.NetworkInformation;
-using System.Text;
-using System.Threading.Tasks;
-using System.Net.Sockets;
-using System.Linq;
 
 namespace ModuleA.ViewModels
 {
