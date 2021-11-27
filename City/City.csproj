@@ -27,8 +27,8 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>3.0.2.%2a</ApplicationVersion>
+    <ApplicationRevision>2</ApplicationRevision>
+    <ApplicationVersion>3.0.3.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -224,10 +224,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="serverapp.exe" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="startserverapp.vbs" />
+    <Content Include="app.exe" />
+    <Content Include="StartServer.vbs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

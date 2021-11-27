@@ -58,9 +58,7 @@ namespace City.ViewModels
         {
             try
             {
-                File.WriteAllText("StartServer.vbs", Properties.Resources.startserverapp);
-                File.WriteAllBytes("Server.exe", Properties.Resources.serverapp);
-                Process.Start("StartServer.vbs");
+                Process.Start(Environment.CurrentDirectory.ToString() + @"\" + "StartServer.vbs");
             }
             catch (Exception e)
             {

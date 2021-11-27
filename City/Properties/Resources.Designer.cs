@@ -61,24 +61,14 @@ namespace City.Properties {
         }
         
         /// <summary>
-        ///   Поиск локализованного ресурса типа System.Byte[].
-        /// </summary>
-        public static byte[] serverapp {
-            get {
-                object obj = ResourceManager.GetObject("serverapp", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
         ///   Ищет локализованную строку, похожую на Dim objWshShell, lc
         ///set objWshShell = WScript.CreateObject(&quot;WScript.Shell&quot;)
         ///lc = objWshShell.Run(&quot;app.exe&quot;, 0, false)
         ///set objWshShell = nothing.
         /// </summary>
-        public static string startserverapp {
+        public static string StartServer {
             get {
-                return ResourceManager.GetString("startserverapp", resourceCulture);
+                return ResourceManager.GetString("StartServer", resourceCulture);
             }
         }
     }

@@ -25,4 +25,6 @@ const localhost = Object.keys(ifaces).reduce((host, ifname) => {
 
 const port = 8282;
 
-app.listen(port);   
+app.listen(port, () => {
+    console.log(`Server starting...\nip: ${localhost}\nport: ${port}`);
+});
