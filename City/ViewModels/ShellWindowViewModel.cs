@@ -60,7 +60,7 @@ namespace City.ViewModels
             {
                 Process.Start(Environment.CurrentDirectory.ToString() + @"\" + "StartServer.vbs");
             }
-            catch (Exception e)
+            catch (Exception)
             {
             }
             WallpaperID = ModuleA.Properties.Settings.Default.Id;
