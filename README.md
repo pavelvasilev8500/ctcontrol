@@ -9,6 +9,7 @@ System Requrement
 
 Functions
 
-|   fb    |   sb   |   tb  |   fb   | 
+
+|   ![Component 126](https://user-images.githubusercontent.com/61418223/143914815-9a29318b-d53a-4549-8b32-3cf4488816f5.png)    |   sb   |   tb  |   fb   | 
 | ------- | ------ | ----- | ------ |
 | sleep | poweroff | reset |  block |
