@@ -94,5 +94,17 @@ namespace ModuleA.Properties {
                 this["ip"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string ProcessName {
+            get {
+                return ((string)(this["ProcessName"]));
+            }
+            set {
+                this["ProcessName"] = value;
+            }
+        }
     }
 }

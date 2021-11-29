@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 16.0.31515.178
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "City", "City\City.csproj", "{5843AC74-56FE-47C8-B46F-696B4D19D506}"
+	ProjectSection(ProjectDependencies) = postProject
+		{EB32D7D1-2DA1-4A0C-8599-EB0787347A3D} = {EB32D7D1-2DA1-4A0C-8599-EB0787347A3D}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModuleA", "ModuleA\ModuleA.csproj", "{210A37E2-E53D-4C19-A7F7-732549823CF8}"
 EndProject

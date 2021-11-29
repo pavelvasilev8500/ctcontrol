@@ -59,5 +59,15 @@ namespace City.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Byte[].
+        /// </summary>
+        public static byte[] app {
+            get {
+                object obj = ResourceManager.GetObject("app", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
     }
 }

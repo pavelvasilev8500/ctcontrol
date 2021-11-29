@@ -1,10 +1,12 @@
 ﻿using ControlLibrary.Classes;
-using ModuleA.Properties;
 using ModuleA.ViewModels;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -16,10 +18,12 @@ namespace ModuleA.Models
         Timer datatimer = new Timer();
         Server server = new Server();
         DataPC dataPC = new DataPC();
-        private string IP { get; set; }
+
+        private bool Result { get; set; } = false;
 
         public MainModel()
         {
+            CheckData();
             StartDataClock();
         }
 
@@ -74,7 +78,7 @@ namespace ModuleA.Models
         {
             Data data = new Data
             {
-                IDdata = "1",
+                IDdata = $"{ControlLibrary.Properties.Settings.Default.PCID}",
                 date = $"{dataPC.SetDate()}",
                 time = $"{dataPC.SetTime()}",
                 day = $"{dataPC.SetDay()}",
@@ -97,27 +101,25 @@ namespace ModuleA.Models
             await Task.Run(() => FirsTimeInitialized(json));
         }
 
-        private void FirsTimeInitialized(string json)
+        private void CheckData()
         {
-            IP = GetPCIP.getIP() + "/api/pcdata/";
-            string ip = IP;
             try
             {
-                WebRequest request = WebRequest.Create(ip);
-                request.Timeout = 1000;
+                WebRequest request = WebRequest.Create(GetPCIP.getIP() + "/api/pcdata/");
                 WebResponse response = request.GetResponse();
+                request.Timeout = 100000;
                 using (Stream stream = response.GetResponseStream())
                 {
                     using (StreamReader reader = new StreamReader(stream))
                     {
-                        string line = reader.ReadLine();
-                        if (line.Equals("[]"))
+                        JArray o = JArray.Parse(reader.ReadToEnd());
+                        foreach (var d in o)
                         {
-                            server.Post(json, ip);
-                        }
-                        else
-                        {
-                            server.Put(json, ip);
+                            if (ControlLibrary.Properties.Settings.Default.PCID.Equals(d["IDdata"].ToString()))
+                            {
+                                Result = true;
+                                //MessageBox.Show($"{ControlLibrary.Properties.Settings.Default.PCID} - {d["IDdata"]} - {Result}");
+                            }
                         }
                     }
                 }
@@ -125,8 +127,20 @@ namespace ModuleA.Models
             }
             catch (Exception)
             {
-                return;
             }
+
+        }
+
+        private void FirsTimeInitialized(string json)
+        {
+            string ip = GetPCIP.getIP() + "/api/pcdata/";
+            if (Result.Equals(true))
+                server.Put(json, ip);
+            else
+            {
+                server.Post(json, ip);
+                Result = true;
+            }    
         }
 
         #region StartServer&DataBase

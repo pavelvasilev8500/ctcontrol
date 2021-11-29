@@ -1,6 +1,9 @@
 ﻿using City.Models;
 using Prism.Mvvm;
 using System;
+using System.Diagnostics;
+using System.IO;
+using System.Reflection;
 using System.Windows;
 
 namespace City.ViewModels
@@ -54,6 +57,8 @@ namespace City.ViewModels
 
         public ShellWindowViewModel()
         {
+            shellModel.SetAppID();
+            shellModel.StartServer();
             WallpaperID = ModuleA.Properties.Settings.Default.Id;
         }
     }

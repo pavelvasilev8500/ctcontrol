@@ -20,5 +20,8 @@
     <Setting Name="ip" Type="System.String" Scope="User">
       <Value Profile="(Default)">192.168.0.107:4242</Value>
     </Setting>
+    <Setting Name="ProcessName" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
   </Settings>
 </SettingsFile>

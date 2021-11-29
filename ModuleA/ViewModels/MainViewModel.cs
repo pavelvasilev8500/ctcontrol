@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using System;
 using Prism.Regions;
 using ModuleA.Models;
+using System.Diagnostics;
 
 namespace ModuleA.ViewModels
 {
@@ -239,8 +240,16 @@ namespace ModuleA.ViewModels
 
         private void Close()
         {
-            //var process = Process.GetProcessById(ProcessId);
-            //process.CloseMainWindow();
+            try
+            {
+                foreach (Process proc in Process.GetProcessesByName(ModuleA.Properties.Settings.Default.ProcessName))
+                {
+                    proc.Kill();
+                }
+            }
+            catch (Exception ex)
+            {
+            }
             Environment.Exit(0);
         }
         #endregion

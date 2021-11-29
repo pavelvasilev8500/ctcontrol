@@ -24,21 +24,16 @@ namespace ModuleA.Views
     /// </summary>
     public partial class ConnectionView : System.Windows.Controls.UserControl
     {
+        //написать алгоритм для перерисовывания qr прі смене ip можно использовать для перезагрузки сервера
         Timer timer = new Timer();
-        private string IP { get; set; } 
+        private string FirstIp { get; set; } = GetPCIP.getIP();
+        private string SecondIp { get; set; }
+        private string IP { get; set; } = GetPCIP.getIP() + "/api/pcdata/update/" + ControlLibrary.Properties.Settings.Default.PCID.ToString();
 
-        private void StartClock()
-        {
-            timer.Enabled = true;
-            timer.Tick += Timer_Tick;
-            timer.Interval = 1000;
-            timer.Start();
-        }
-
-        private void Timer_Tick(object sender, EventArgs e)
+        private void CreateQR(string ip)
         {
             QRCoder.QRCodeGenerator qr = new QRCoder.QRCodeGenerator();
-            QRCoder.QRCodeData data = qr.CreateQrCode(GetPCIP.getIP(), QRCoder.QRCodeGenerator.ECCLevel.L);
+            QRCoder.QRCodeData data = qr.CreateQrCode(ip, QRCoder.QRCodeGenerator.ECCLevel.L);
             QRCoder.QRCode code = new QRCoder.QRCode(data);
             Bitmap bitmap = code.GetGraphic(20, System.Drawing.Color.White, System.Drawing.Color.Transparent, false);
             using (MemoryStream memory = new MemoryStream())
@@ -54,10 +49,30 @@ namespace ModuleA.Views
             }
         }
 
+        private void StartClock()
+        {
+            timer.Enabled = true;
+            timer.Tick += Timer_Tick;
+            timer.Interval = 1000;
+            timer.Start();
+        }
+
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            SecondIp = GetPCIP.getIP();
+            //System.Windows.MessageBox.Show($"{FirstIp} - {SecondIp} - {FirstIp == SecondIp}");
+            if (FirstIp != SecondIp)
+            {
+                CreateQR(SecondIp + "/api/pcdata/update/" + ControlLibrary.Properties.Settings.Default.PCID.ToString());
+                FirstIp = SecondIp;
+            }
+        }
+
         public ConnectionView()
         {
             InitializeComponent();
             StartClock();
+            CreateQR(IP);
         }
     }
 }
