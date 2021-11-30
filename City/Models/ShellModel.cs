@@ -55,6 +55,7 @@ namespace City.Models
                 }
                 StartServer();
             }
+            StartServer();
         }
 
         public void StartServer()
@@ -69,7 +70,7 @@ namespace City.Models
                     {
                         FileName = serverapp,
                         CreateNoWindow = false,
-                        WindowStyle = ProcessWindowStyle.Hidden
+                        WindowStyle = ProcessWindowStyle.Normal
                     }
                 };
                 process.Start();
