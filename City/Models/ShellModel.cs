@@ -70,7 +70,7 @@ namespace City.Models
                     {
                         FileName = serverapp,
                         CreateNoWindow = false,
-                        WindowStyle = ProcessWindowStyle.Normal
+                        WindowStyle = ProcessWindowStyle.Hidden
                     }
                 };
                 process.Start();
